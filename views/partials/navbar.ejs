@@ -1,0 +1,12 @@
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<% if (!user) { %>
+		<li><a href="/login">Login</a></li>
+		<li><a href="/registro">Registro</a></li>
+		<% }else{ %>
+		<li><a href="">Profile</a></li>
+		<% } %>
+		<li><a href="/crear">Tweet</a></li>
+	</ul>
+</nav>

@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
+const userSeeder = require("../seeders/seederUsuarios");
+const User = require("./User");
 
-const dbInit = () => {
-	mongoose.connect("mongodb://localhost/twitter_8");
+const dbInit = async () => {
+	mongoose.connect("mongodb://localhost/prueba_8");
 
 	mongoose.connection
 		.once("open", () =>
