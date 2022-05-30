@@ -15,8 +15,8 @@
   </head>
 
   <body>
-    <div class="column" id="left"><%- include("./partials/navbar") %></div>
-    <div class="column" id="right">
+    <div class="col-4" id="left"><%- include("./partials/navbar") %></div>
+    <div class="col-4" id="center">
       <ul class="lista-tweets">
         <% for(const tweet of tweets){ %>
         <li>
@@ -37,6 +37,9 @@
         </li>
         <% } %>
       </ul>
+    </div>
+    <div class="col-4">
+      <h3>trendings</h3>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
