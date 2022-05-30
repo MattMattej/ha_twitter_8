@@ -75,11 +75,16 @@ form {
 }
 #iconlogin{
 	background-image: url("/img/loginback.png");
-	display: flex;
-	
+	background-size: cover;
+	background-repeat: no-repeat;
+
 }
 #login{
 	display: flex;
 	justify-content: center;	
 	align-items: center;
+}
+#cardTweet{
+	display: flex;
+	justify-content: center;
 }
