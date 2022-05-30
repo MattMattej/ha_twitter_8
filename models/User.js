@@ -33,12 +33,11 @@ const UserSchema = new mongoose.Schema({
 	],
 	followsCount: { type: Number, default: 0 },
 });
-//middleware que se ejecuta antes de guardar
-UserSchema.pre("save", async (next) => {
-	//checkea si la password esta presente y es modificada
-	if (this.password) {
-		//lo hashea
-		return (this.password = await bcrypt.hash(this.password, 10));
-	}
+//middleware que se ejecuta antes de guardar y hashea las passwords
+//no funciona con arrow function!!
+UserSchema.pre("save", { document: true, query: true }, async function (next) {
+	this.password = await bcrypt.hash(this.password, 10);
+
+	next();
 });
 module.exports = mongoose.model("user", UserSchema);
