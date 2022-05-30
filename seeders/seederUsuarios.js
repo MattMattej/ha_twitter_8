@@ -3,21 +3,25 @@ const User = require("../models/User");
 const Tweet = require("../models/Tweet");
 faker.locale = "es";
 module.exports = async () => {
-	await User.deleteMany({});
-
-	for (let i = 0; i < 20; i++) {
-		const name = faker.name.firstName();
-		const lastname = faker.name.lastName();
-		const users = new User({
-			firstname: name,
-			lastname: lastname,
-			username: faker.internet.userName(name),
-			email: faker.internet.email(name),
-			password: "1234",
-			description: faker.lorem.sentence(3),
-			likes: faker.datatype.number(25),
-		});
-		await users.save();
-	}
-	console.log("fake data added");
+  await User.deleteMany({});
+  const random = faker.datatype.number(34);
+  const random2 = faker.datatype.number(34);
+  for (let i = 0; i < 20; i++) {
+    const name = faker.name.firstName();
+    const lastname = faker.name.lastName();
+    const users = new User({
+      firstname: name,
+      lastname: lastname,
+      username: faker.internet.userName(name),
+      email: faker.internet.email(name),
+      password: "1234",
+      description: faker.lorem.sentence(3),
+      followedCount: faker.datatype.number(random),
+      followedBy: User.aggregate([{ $sample: { size: random } }]), //Quiero seleccionar 1 de un random de todos los ids de usuarios que creamos. Ya importados
+      followsCount: faker.datatype.number(random2),
+      follows: User.aggregate([{ $sample: { size: random2 } }]), 
+    });
+    await users.save();
+  }
+  console.log("fake data added");
 };
