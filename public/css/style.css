@@ -66,3 +66,15 @@ form {
 	margin-top: 4px;
 	height: 4rem;
 }
+#kittilogin{
+	height: 20rem;
+}
+#iconlogin{
+	display: flex;
+	justify-content: center;	
+}
+#login{
+	display: flex;
+	justify-content: center;	
+	align-items: center;
+}
