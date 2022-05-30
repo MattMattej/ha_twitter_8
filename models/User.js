@@ -36,7 +36,7 @@ const UserSchema = new mongoose.Schema({
 //middleware que se ejecuta antes de guardar
 UserSchema.pre("save", async (next) => {
 	//checkea si la password esta presente y es modificada
-	if (this.password && this.isModified("password")) {
+	if (this.password) {
 		//lo hashea
 		return (this.password = await bcrypt.hash(this.password, 10));
 	}
