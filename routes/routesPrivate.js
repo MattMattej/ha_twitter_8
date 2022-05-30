@@ -3,9 +3,11 @@ const router = express.Router();
 const controller = require("../controllers/privateController");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 
+router.use(isAuthenticated());
+
 //pagina de perfil
 router.get("/profile", (req, res) => {
-	res.render("profile", { user: req.user });
+  res.render("profile", { user: req.user });
 });
 
 //crear un tweet
