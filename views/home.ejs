@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/css/style.css" />
-		<title>Twitter - Home</title>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Kittier - Home</title>
+  </head>
 
-	<body>
-		<div class="column" id="left"><%- include("./partials/navbar") %></div>
-		<div class="column" id="right">
-			<ul class="lista-tweets">
-				<% for(const tweet of tweets){ %>
-				<li>
-					<div class="card bg-dark my-4" style="width: 18rem">
-						<img
-							src="<%= tweet.author.avatar %> "
-							class="card-img-top pic"
-							alt="..."
-						/>
-						<div class="card-body">
-							<a href="/tweet/<%= tweet._id %> ">
-								<h5 class="card-title"><%= tweet.author.username %></h5>
-								<p class="card-text"><%= tweet.content %></p>
-							</a>
-						</div>
-					</div>
-				</li>
-				<% } %>
-			</ul>
-		</div>
-	</body>
+  <body>
+    <div class="column" id="left"><%- include("./partials/navbar") %></div>
+    <div class="column" id="right">
+      <ul class="lista-tweets">
+        <% for(const tweet of tweets){ %>
+        <li>
+          <div class="card bg-dark my-4" style="width: 18rem">
+            <img
+              src="<%= tweet.author.avatar %> "
+              class="card-img-top pic"
+              alt="..."
+            />
+            <div class="card-body">
+              <a href="/tweet/<%= tweet._id %> ">
+                <h5 class="card-title"><%= tweet.author.username %></h5>
+                <p class="card-text"><%= tweet.content %></p>
+              </a>
+            </div>
+          </div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
 </html>

@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="stylesheet" href="/css/style.css" />
-	</head>
-	<body>
-		<div class="container">
-			<h1>Login</h1>
-			<form action="/login" method="post">
-				<input type="text" name="username" placeholder="username" />
-				<input type="password" name="password" placeholder="password" />
-				<button type="submit">Send</button>
-			</form>
-		</div>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login or register</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container" id="iconlogin">
+      <img src="/img/kittier.png" alt="" id="kittilogin" />
+    </div>
+    <div class="container" id="login">
+      <img src="/img/kittier.png" alt="" id="kittiloginicon" />
+      <h1>Login</h1>
+      <form action="/login" method="post">
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </body>
 </html>
