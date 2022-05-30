@@ -35,14 +35,14 @@ form {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	background-color: rgb(17, 83, 250);
+	background-color: rgb(29, 161, 242);
 	border: 1px solid white;
 	border-radius: 8px;
 	width: 14rem;
 	height: 14rem;
 }
 .head {
-	background-color: rgb(33, 160, 228);
+	background-color: rgb(29, 161, 242);
 	margin: 0px;
 	width: 100%;
 	text-align: center;
@@ -51,7 +51,7 @@ form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgb(33, 160, 228);
+	background-color: rgb(29, 161, 242);
 	border-radius: 12px;
 	width: 17rem;
 }
@@ -68,6 +68,12 @@ form {
 }
 #kittilogin{
 	height: 20rem;
+}
+#kittiloginicon{
+	height: 3rem;
+	display: flex;
+	justify-content: left;
+
 }
 #iconlogin{
 	display: flex;
