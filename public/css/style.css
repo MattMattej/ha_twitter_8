@@ -72,12 +72,11 @@ form {
 #kittiloginicon{
 	height: 3rem;
 	display: flex;
-	justify-content: left;
-
 }
 #iconlogin{
+	background-image: url("/img/loginback.png");
 	display: flex;
-	justify-content: center;	
+
 }
 #login{
 	display: flex;
