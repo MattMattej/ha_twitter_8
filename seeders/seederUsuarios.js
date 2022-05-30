@@ -6,6 +6,8 @@ module.exports = async () => {
   await User.deleteMany({});
   const random = faker.datatype.number(34);
   const random2 = faker.datatype.number(34);
+  const followed = await User.aggregate([{ $sample: { size: random } }])
+  const followss = await User.aggregate([{ $sample: { size: random2 } }])
   for (let i = 0; i < 20; i++) {
     const name = faker.name.firstName();
     const lastname = faker.name.lastName();
@@ -17,9 +19,9 @@ module.exports = async () => {
       password: "1234",
       description: faker.lorem.sentence(3),
       followedCount: faker.datatype.number(random),
-      followedBy: User.aggregate([{ $sample: { size: random } }]), //Quiero seleccionar 1 de un random de todos los ids de usuarios que creamos. Ya importados
+      followedBy: followed, //Quiero seleccionar #random de un random de todos los ids de usuarios que creamos. Ya importados
       followsCount: faker.datatype.number(random2),
-      follows: User.aggregate([{ $sample: { size: random2 } }]), 
+      follows: followss,
     });
     await users.save();
   }
