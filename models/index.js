@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 
 const dbInit = async () => {
-<<<<<<< Updated upstream
 	mongoose.connect(process.env.DB_CONNECTION);
-=======
-	mongoose.connect("mongodb://127.0.0.1/prueba_8");
->>>>>>> Stashed changes
 
 	mongoose.connection
 		.once("open", () =>
