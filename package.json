@@ -1,21 +1,4 @@
 {
-  "name": "ha_twitter_8",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MattMattej/ha_twitter_8.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MattMattej/ha_twitter_8/issues"
-  },
-  "homepage": "https://github.com/MattMattej/ha_twitter_8#readme",
   "dependencies": {
     "@faker-js/faker": "^7.1.0",
     "bcryptjs": "^2.4.3",
