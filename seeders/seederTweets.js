@@ -22,7 +22,6 @@ module.exports = async () => {
 	tweets.forEach(async (tweet) => {
 		const random = faker.datatype.number({ min: 4, max: 8 });
 		const user = await User.findOne().skip(random);
-		console.log(user);
 		tweet.author = user._id;
 		await tweet.save();
 	});
