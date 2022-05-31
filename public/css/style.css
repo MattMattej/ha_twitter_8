@@ -250,95 +250,6 @@
     font-size: 18px;
     font-weight: 800;
   }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-
-
 
 /* body {
 	margin: 0;
@@ -359,6 +270,7 @@
 #left {
 	flex-shrink: 0;
 }
+
 ul {
 	list-style: none;
 }
@@ -408,25 +320,9 @@ form {
 	margin-top: 4px;
 	height: 4rem;
 }
-#kittilogin{
-	height: 20rem;
-}
-#iconlogin{
-	background-image: url("/img/registerimg.png");
-	background-size: cover;
-	background-repeat: no-repeat;
 
-}
-#fondoLogin{
-  background-color: black;
-}
-#login{
-	display: flex;
-	justify-content: center;	
-	align-items: center;
-}
 #cardTweet{
 	display: flex;
 	justify-content: center;
 }
->>>>>>> Stashed changes
+

@@ -11,20 +11,31 @@
       crossorigin="anonymous"
     />
     <title>Login or register</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/loginstyle.css" />
   </head>
   <body>
-    <div class="row">
-      <div class="col-6" id="iconlogin"></div>
-      <div class="col-6" id="login">
-        <h1>Lo que esta pasando</h1>
-        <h2>Unete a Kittier hoy mismo</h2>
-        <h3>Login</h3>
-        <form action="/login" method="post">
-          <input type="text" name="username" placeholder="Username" />
-          <input type="password" name="password" placeholder="Password" />
-          <button type="submit">Send</button>
-        </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-6" id="iconlogin">
+          <img src="/img/registerimg.png" alt="" />
+        </div>
+        <div class="col-6" id="login">
+          <div class="row" id="icono">
+            <img src="/img/kittier.png" alt="" />
+          </div>
+          <div class="row">
+            <h1 id="titulo1">Lo que está pasando</h1>
+          </div>
+          <div class="row" id="titulo2"><h4>Unete a Kittier hoy mismo</h4></div>
+          <div class="row" id="form">
+            <form action="/login" method="post">
+              <input type="text" name="username" placeholder="Username" />
+              <input type="password" name="password" placeholder="Password" />
+              <button type="submit">Send</button>
+              <a href="/registro.ejs">Registrarse</a>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <script

@@ -1,0 +1,32 @@
+body{
+    background-color: black;
+}
+#icono{
+    width: 6rem;
+    margin-top: 2rem;
+}
+#titulo1{
+ margin-top: 5rem;
+ font-size: 65px;
+}
+
+#titulo2{
+    margin-top: 5rem;
+}
+
+#kittilogin{
+	height: 20rem;
+}
+
+#iconlogin{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+#fondoLogin{
+  background-color: black;
+}
+
