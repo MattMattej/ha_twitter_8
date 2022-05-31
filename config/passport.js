@@ -12,7 +12,8 @@ module.exports = async (app) => {
 			if (!user) {
 				return done(null, false, { message: "Usuario no encontrado" });
 			}
-			if (!user.comparePass(password)) {
+
+			if (!(await user.comparePass(password))) {
 				return done(null, false, { message: "Datos invalidos" });
 			}
 
