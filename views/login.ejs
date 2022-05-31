@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+
     <title>Login or register</title>
     <link rel="stylesheet" href="/css/loginstyle.css" />
   </head>
@@ -24,23 +25,32 @@
             <img src="/img/kittier.png" alt="" />
           </div>
           <div class="row">
-            <h1 id="titulo1">Lo que está pasando</h1>
+            <h1 id="titulo1">Happening now</h1>
           </div>
-          <div class="row" id="titulo2"><h4>Unete a Kittier hoy mismo</h4></div>
-          <div class="row" id="form">
-            <form action="/login" method="post">
+          <div class="row" id="titulo2"><h4>Join Kittier today</h4></div>
+          <form action="/login" method="post" id="formLogin">
+            <div class="mb-3">
+              <label class="form-label" id="user"></label>
               <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="mb-3" id="password">
+              <label for="exampleInputPassword1" class="form-label"></label>
               <input type="password" name="password" placeholder="Password" />
-              <button type="submit">Send</button>
-              <a href="/registro.ejs">Registrarse</a>
-            </form>
-          </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="button">
+              Submit
+            </button>
+            <div class="mt-2" id="register">
+              <a data-toggle="tab" href="registro.ejs">Or register</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+    <!-- JavaScript Bundle with Popper -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
   </body>

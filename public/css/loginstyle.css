@@ -7,18 +7,30 @@ body{
 }
 #titulo1{
  margin-top: 5rem;
- font-size: 65px;
+ font-size: 70px;
+
 }
 
 #titulo2{
     margin-top: 5rem;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
 }
-
+#formLogin{
+    margin-left: 1.5rem;
+}
+#button{
+    margin-left: 3.5rem;
+}
+#register{
+    margin-left: 3.5rem;
+}
 #kittilogin{
 	height: 20rem;
 }
 
 #iconlogin{
+    margin: 0;
     display: flex;
     justify-content: center;
     margin-top: 2rem;
