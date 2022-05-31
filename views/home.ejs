@@ -25,6 +25,7 @@
 		<link rel="stylesheet" href="/css/style.css" />
 	</head>
 
+<<<<<<< Updated upstream
 	<body>
 		<%- include("./partials/navbar")%>
 		<!-- feed starts -->
@@ -32,6 +33,57 @@
 			<div class="feed__header">
 				<h2>Home</h2>
 			</div>
+=======
+  <body>
+    
+<div class="sidebar">
+  <i class="fab fa-twitter"></i>
+  <div class="sidebarOption active">
+    <span class="material-icons"> home </span>
+    <a href="/">Home</a>
+  </div>
+  <% if (!user) { %>
+    <div class="sidebarOption">
+      <span class="material-icons">
+        login
+      </span>
+      <a href="/login">Login</a>
+    </div>
+
+    <div class="sidebarOption">
+      <span class="material-icons">
+        how_to_reg
+      </span>
+      <a href="/registro">registro</a>
+    </div>
+    <% }else{ %>
+
+
+
+      <div class="sidebarOption">
+        <span class="material-icons">
+          account_circle
+        </span>
+        <a href="/profile">Profile</a>
+      </div>
+
+      <div class="sidebarOption">
+        <span class="material-icons">
+          logout
+        </span>
+        <a href="/logout" class="btn btn-danger">log-out</a>
+      </div>
+
+      <% } %>
+        <button class="sidebar__tweet">Tweet</button>
+</div>
+    
+    <!-- feed starts -->
+    <div class="feed">
+      <div class="feed__header">
+        <h2>Home</h2>
+      </div>
+>>>>>>> Stashed changes
 
 			<!-- tweetbox starts -->
 			<div class="tweetBox">
