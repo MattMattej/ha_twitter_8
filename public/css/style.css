@@ -9,7 +9,7 @@
     --twitter-color: #50b7f5;
     --twitter-background: #e6ecf0;
   }
-  a{
+  .a{
 	  text-decoration: none;
 	  font-weight: 800;
 	  font-size: 20px;
@@ -335,3 +335,98 @@
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+/* body {
+	margin: 0;
+	overflow: scroll;
+	display: flex;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, ;
+	background-color: black;
+	color: white;
+}
+/*.column {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: rgb(248, 248, 248);
+}*/
+#left {
+	flex-shrink: 0;
+}
+ul {
+	list-style: none;
+}
+
+.container {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+}
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: rgb(29, 161, 242);
+	border: 1px solid white;
+	border-radius: 8px;
+	width: 14rem;
+	height: 14rem;
+}
+.head {
+	background-color: rgb(29, 161, 242);
+	margin: 0px;
+	width: 100%;
+	text-align: center;
+}
+.perfil {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(29, 161, 242);
+	border-radius: 12px;
+	width: 17rem;
+}
+.title {
+	margin-bottom: 8rem;
+}
+.pic {
+	width: 3rem;
+	border-radius: 50%;
+}
+#kittihome{
+	margin-top: 4px;
+	height: 4rem;
+}
+#kittilogin{
+	height: 20rem;
+}
+#iconlogin{
+	background-image: url("/img/registerimg.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+#fondoLogin{
+  background-color: black;
+}
+#login{
+	display: flex;
+	justify-content: center;	
+	align-items: center;
+}
+#cardTweet{
+	display: flex;
+	justify-content: center;
+}
+>>>>>>> Stashed changes

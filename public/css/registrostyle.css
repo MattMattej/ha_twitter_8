@@ -1,6 +1,11 @@
-
+body{
+  background-color: black;
+}
+#formReg{
+  background-color: #fff;
+}
 #image {
-  background-image: url(/img/loginback.png);
+  background-image: url(/img/registerimg.png);
   background-repeat: none;
   background-size: cover;
 }
@@ -13,7 +18,7 @@
 
 .form-control {
   height: 1.4rem;
-  background: #fff;
+  background: rgb(255, 255, 255);
   color: #000;
   font-size: 16px;
   border-radius: 0;
@@ -48,5 +53,3 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     border: 1px solid #00acee; }
-
- 
