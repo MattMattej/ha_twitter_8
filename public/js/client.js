@@ -1,18 +1,10 @@
-const button = document.getElementById("favTweet");
-button.addEventListener("click", function (e) {
-  e.preventDefault();
-  console.log("button was clicked");
+const likeForm = document.getElementById("favTweet");
+const getTweetId = document.getElementById("getTweetId");
+likeForm.addEventListener("submit", async function (e) {
+	e.preventDefault();
+	console.log("button was clicked");
 
-  const tweetId = e.dataset.tweetid;
-  fetch(`/favTweet/${tweetId}$`, { method: "POST" })
-    .then(function (response) {
-      if (response.ok) {
-        console.log("click was recorded");
-        return tweetId;
-      }
-      throw new Error("Request failed.");
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+	const response = await fetch(`/favTweet/${getTweetId.value}`, {
+		method: "POST",
+	});
 });
