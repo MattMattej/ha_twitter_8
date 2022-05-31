@@ -32,7 +32,7 @@ module.exports = {
   },
   favTweet: async (req, res) => {
     //Me traigo el tuit que quiero chequear si el usuario likeo o no.
-    let tweetCheck = await Tweet.findOne({ _id: req.params.id }).populate(
+    let tweetCheck = await Tweet.findOne({ _id: req.body.id }).populate(
       "author"
     );
 

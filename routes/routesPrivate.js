@@ -6,8 +6,11 @@ const isAuthenticated = require("../middlewares/isAuthenticated");
 router.use(isAuthenticated);
 //pagina de perfil
 router.get("/profile", (req, res) => {
-	res.render("profile", { user: req.user });
+  res.render("profile", { user: req.user });
 });
+
+//boton de like
+router.post("/favTweet", controller.favTweet);
 
 //crear un tweet
 router.get("/crear", controller.renderNewTweet);

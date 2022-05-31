@@ -39,8 +39,13 @@
                 <p class="card-text"><%= tweet.content %></p>
               </a>
               <i class="fa-regular fa-comment"></i>
-              <i class="fa-regular fa-arrows-retweet"></i>
-              <i class="fa-regular fa-heart"></i>
+              <form method="POST" action="/favTweet">
+                <input type="hidden" value="<%=tweet._id%>" name="id" />
+                <button type="submit">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </form>
+
               <p><%= tweet.favoriteCount %></p>
             </div>
           </div>
@@ -56,5 +61,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/client.js"></script>
   </body>
 </html>
