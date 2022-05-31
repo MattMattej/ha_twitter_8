@@ -41,9 +41,7 @@ UserSchema.pre("save", { document: true, query: true }, async function (next) {
 	next();
 });
 //busca un usuario y lo compara con la password que le llega
-UserSchema.methods.compare = async function (model, password) {
-	const user = await model.findOne({ username: req.body.username });
-	const compare = await bcrypt.compare(password, user.password);
-	return compare;
+UserSchema.methods.comparePass = async function (password) {
+	console.log(await bcrypt.compare(password, this.password));
 };
 module.exports = mongoose.model("user", UserSchema);

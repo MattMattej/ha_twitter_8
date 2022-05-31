@@ -12,9 +12,7 @@ module.exports = async (app) => {
 			if (!user) {
 				return done(null, false, { message: "Usuario no encontrado" });
 			}
-			// const compare = await bcrypt.compare(password, user.password);
-			//lo tuve que hacer manual porque bcrypts todavia no tiene contraseñas hasheadas y no anda!!!
-			if (!password === user.password) {
+			if (!user.comparePass(password)) {
 				return done(null, false, { message: "Datos invalidos" });
 			}
 
