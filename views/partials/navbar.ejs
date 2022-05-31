@@ -1,70 +1,44 @@
-<<<<<<< Updated upstream
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Document</title>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <img src="/img/kittier.png" alt="" id="kittihome" />
-        <li>
-          <a href="/" style="text-decoration: none"
-            ><i class="fa-thin fa-house"></i>
-            <span>Home</span>
-          </a>
-        </li>
-        <% if (!user) { %>
-        <li><a href="/login" style="text-decoration: none"> </a></li>
-        <li><a href="/registro" style="text-decoration: none">Registro</a></li>
-        <% }else{ %>
-        <li><a href="">Explore</a></li>
-        <li><a href="">Notifications</a></li>
-        <li><a href="">Messages</a></li>
-        <li><a href="">Bookmarks</a></li>
-        <li><a href="">List</a></li>
-        <li>
-          <a href="/profile" style="text-decoration: none">Profile </a>
-        </li>
-        <% } %>
-        <li><a href="/crear" style="text-decoration: none">Tweet</a></li>
-        <li><a href="">Explore</a></li>
-      </ul>
-    </nav>
-  </body>
-</html>
-=======
- 
+
+
+
+<div class="sidebar">
+  <i class="fab fa-twitter"></i>
+  <div class="sidebarOption active">
+    <span class="material-icons"> home </span>
+    <a href="/">Home</a>
+  </div>
+  <% if (!user) { %>
+  <div class="sidebarOption">
+    <span class="material-icons">
+      login
+      </span>
+    <a href="/login">Login</a>
+  </div>
+
+  <div class="sidebarOption">
+    <span class="material-icons">
+      how_to_reg
+      </span>
+    <a href="/registro">registro</a>
+  </div>
+  <% }else{ %>
 
   
 
-
-
-
-
-
-<nav>
-  <ul>
-    <img src="/img/kittier.png" alt="" id="kittihome" />
-    <li><a href="/">Home</a></li>
-    <% if (!user) { %>
-    <li><a href="/login">Login</a></li>
-    <li><a href="/registro">Registro</a></li>
-    <% }else{ %>
-    <li><a href="">Profile</a></li>
-    <% } %>
-    <li><a href="/crear">Tweet</a></li>
-  </ul>
-</nav> 
- 
->>>>>>> Stashed changes
+  <div class="sidebarOption">
+    <span class="material-icons">
+      account_circle
+      </span>
+    <a href="/profile">Profile</a>
+  </div>
+  
+  <div class="sidebarOption">
+    <span class="material-icons">
+      logout
+      </span>
+      <a href="/logout" class="btn btn-danger">log-out</a>
+  </div>
+  
+  <% } %>
+  <button  class="sidebar__tweet">Tweet</button>
+</div>
