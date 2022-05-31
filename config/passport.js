@@ -3,7 +3,6 @@ const LocalStrategy = require("passport-local");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const session = require("express-session");
-const { findById } = require("../models/User");
 module.exports = async (app) => {
 	app.use(passport.session());
 	passport.use(
