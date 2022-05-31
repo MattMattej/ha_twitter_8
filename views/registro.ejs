@@ -58,13 +58,35 @@
 							</div>
 							<form action="/registro" method="post" class="signin-form">
 								<div class="form-group mb-3">
-									<label class="label" for="name">firstname</label>
+									<label class="label" for="firstname">firstname</label>
 									<input
 										type="text"
 										name="firstname"
 										class="form-control"
 										style="border:none ;outline: none ;border-bottom: 1px solid #9999; "
 										placeholder="firstname"
+										required
+									/>
+								</div>
+								<div class="form-group mb-3">
+									<label class="label" for="lastname">lastname</label>
+									<input
+										type="text"
+										name="lastname"
+										class="form-control"
+										style="border:none ;outline: none ;border-bottom: 1px solid #9999; "
+										placeholder="lastname"
+										required
+									/>
+								</div>
+								<div class="form-group mb-3">
+									<label class="label" for="user">User</label>
+									<input
+										type="text"
+										name="username"
+										class="form-control"
+										style="border:none ;outline: none ;border-bottom: 1px solid #9999; "
+										placeholder="username"
 										required
 									/>
 								</div>
@@ -93,7 +115,7 @@
 									/>
 								</div>
 								<div class="form-group">
-									<button
+									<button 
 										type="submit"
 										class="form-control-1 btn btn-primary rounded submit px-3"
 									>
@@ -109,7 +131,7 @@
 							</form>
 							<p class="text-center">
 								Do you already have an account?
-								<a data-toggle="tab" href="login/">Sign In</a>
+								<a data-toggle="tab" href="login">Sign In</a>
 							</p>
 						</div>
 					</div>
