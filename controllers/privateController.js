@@ -7,9 +7,9 @@ module.exports = {
 		if (!req.user) {
 			return console.log("not allowed");
 		}
-		const tweets = await Tweet.find({ favoritedBy: req.user._id }).populate(
-			"author"
-		);
+		const tweets = await Tweet.find({
+			$or: [{ favoritedBy: req.user._id }, { author: req.user._id }],
+		}).populate("author");
 		res.render("home", { tweets, user: req.user });
 	},
 	renderNewTweet: async (req, res) => {

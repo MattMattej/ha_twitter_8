@@ -83,11 +83,12 @@
 						</li>
 					</ul>
 					<br />
-					<button
+					<a
+						href="/crear"
 						class="btn btn-light btn-block btn-lg tw-btn-primary d-none d-lg-block"
 					>
 						Tweet
-					</button>
+					</a>
 					<button
 						class="btn btn-light btn-block btn-lg tw-btn-primary d-lg-none"
 					>
@@ -105,40 +106,40 @@
 						</div>
 					</div>
 					<br />
+					<form action="/crear" method="post">
+						<div class="d-none d-xl-block d-md-none">
+							<div class="row">
+								<div class="col-2 col-md-1">
+									<img
+										src="/img/profile.png"
+										style="width: 38px; margin-right: 10px"
+										class="rounded-circle"
+									/>
+								</div>
 
-					<div class="d-none d-xl-block d-md-none">
-						<div class="row">
-							<div class="col-2 col-md-1">
-								<img
-									src="/img/profile.png"
-									style="width: 38px; margin-right: 10px"
-									class="rounded-circle"
-								/>
+								<div class="col-10 col-md-11">
+									<input
+										name="content"
+										class="form-control tw-input-light"
+										placeholder="Que estas pensando?"
+									/>
+								</div>
 							</div>
-							<div class="col-10 col-md-11">
-								<input
-									name="content"
-									class="form-control tw-input-light"
-									placeholder="Que estas pensando?"
-								/>
-							</div>
-						</div>
-						<br />
-						<div class="row tw-separator">
-							<div class="col-10">
-								<span class="fa fa-image"></span>
-								<span class="fa fa-smile-o"></span>
-							</div>
-							<div class="col-2">
-								<form action="/crear" method="post">
+							<br />
+
+							<div class="row tw-separator">
+								<div class="col-10">
+									<span class="fa fa-image"></span>
+									<span class="fa fa-smile-o"></span>
+								</div>
+								<div class="col-2">
 									<button class="btn tw-btn-primary">Tweet</button>
-								</form>
+								</div>
+								<br />
+								<br />
 							</div>
-							<br />
-							<br />
 						</div>
-					</div>
-
+					</form>
 					<!--Los tweets-->
 					<% for(const tweet of tweets){ %>
 					<div class="row tw-border-bottom tw-timeline">
@@ -151,7 +152,7 @@
 						</div>
 						<div class="col-10 col-md-11">
 							<b><%= tweet.author.firstname %> <%= tweet.author.lastname %></b>
-							<lablel class="tw-label">@l<%= tweet.author.username %></lablel>
+							<lablel class="tw-label">@<%= tweet.author.username %></lablel>
 							<br />
 							<p><%= tweet.content %></p>
 							<span class="fa fa-comment-o"></span>

@@ -4,6 +4,7 @@ const controller = require("../controllers/privateController");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 const Tweet = require("../models/Tweet"); //se va ahora
 
+router.use(express.urlencoded({ extended: true }));
 router.use(isAuthenticated);
 
 router.get("/", controller.getAll);
