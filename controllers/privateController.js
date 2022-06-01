@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 module.exports = {
 	getAll: async (req, res) => {
 		if (!req.user) {
-			return console.log("not allowed");
+			return console.log("");
 		}
 		const tweets = await Tweet.find({
 			$or: [{ favoritedBy: req.user._id }, { author: req.user._id }],
@@ -45,13 +45,11 @@ module.exports = {
 		console.log(req.params.id);
 		const tweetCheck = await Tweet.findById(req.params.id);
 
-		// console, log(tweetCheck);
-
-		//Me sirve para saber sis el usuario está o no en la lista de likers. 0 no likea, otro si.
+		//Me sirve para saber si el usuario está o no en la lista de likers. 0 no likea, otro si.
 		let hasUser = tweetCheck.favoritedBy.includes(req.user.id);
 		console.log(hasUser);
 
-		// Si likeo, entonces lo voy a sacar del listado de array (pide dislike).
+		// Si doy like, entonces lo voy a sacar del listado de array (pide dislike).
 		if (hasUser) {
 			return await Tweet.findByIdAndUpdate(
 				req.params.id,
@@ -145,5 +143,13 @@ module.exports = {
 				{ new: true }
 			);
 		}
+	},
+	checkProfile: async (req, res) => {
+		const profile = await User.findById(req.params.id).populate(
+			"tweets",
+			"follows"
+			// "followedBy"
+		);
+		res.render("profile", { user: req.user, profile });
 	},
 };

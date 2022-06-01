@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/privateController");
 const isAuthenticated = require("../middlewares/isAuthenticated");
+const { findById } = require("../models/Tweet");
 const Tweet = require("../models/Tweet"); //se va ahora
 
 router.use(express.urlencoded({ extended: true }));
@@ -9,9 +10,7 @@ router.use(isAuthenticated);
 
 router.get("/", controller.getAll);
 //pagina de perfil
-router.get("/profile", (req, res) => {
-	res.render("profile", { user: req.user });
-});
+router.get("/profile/:id", controller.checkProfile);
 
 //boton de like
 // router.post("/favTweet/:id", async function (req, res) {
