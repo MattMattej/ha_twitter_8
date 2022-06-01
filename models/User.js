@@ -24,18 +24,18 @@ const UserSchema = new mongoose.Schema({
 			ref: "user",
 		},
 	],
-	followedCount: { type: Number, default: 0 },
+	followedCount: { type: Number, default: 0 }, // ESTO NO SE USA, NO DIO TIEMPO DE BORRAR
 	follows: [
 		{
 			type: mongoose.Types.ObjectId,
 			ref: "user",
 		},
 	],
-	followsCount: { type: Number, default: 0 },
+	followsCount: { type: Number, default: 0 }, // ESTO NO SE USA, NO DIO TIEMPO DE BORRAR
 });
 //middleware que se ejecuta antes de guardar y hashea las passwords
 //no funciona con arrow function!!
-UserSchema.pre("save", { document: true, query: true }, async function (next) {
+UserSchema.pre("save", async function (next) {
 	this.password = await bcrypt.hash(this.password, 10);
 
 	next();

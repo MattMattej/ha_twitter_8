@@ -1,330 +1,346 @@
 <html lang="es">
-  <head>
-    <title>Twitter</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-      rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/home.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div class="container-lg">
-      <div class="row">
-        <%- include('partials/navbar.ejs') %>
-        <div class="col-10 col-lg-6 tw-border-right">
-          <br />
-          <div class="row tw-border-bottom">
-            <div class="col-10 col-md-11">
-              <h5><strong>Pagina principal</strong></h5>
-            </div>
-            <div class="col-1">
-              <span class="fa fa-star"></span>
-            </div>
-          </div>
-          <br />
-          <form action="/crear" method="post">
-            <div class="d-none d-xl-block d-md-none">
-              <div class="row">
-                <div class="col-2 col-md-1">
-                  <img
-                    src="/img/profile.png"
-                    style="width: 38px; margin-right: 10px"
-                    class="rounded-circle"
-                  />
-                </div>
+	<head>
+		<title>Twitter</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/css/home.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div class="container-lg">
+			<div class="row">
+				<%- include('partials/navbar.ejs') %>
+				<div class="col-10 col-lg-6 tw-border-right">
+					<br />
+					<div class="row tw-border-bottom">
+						<div class="col-10 col-md-11">
+							<h5><strong>Pagina principal</strong></h5>
+						</div>
+						<div class="col-1">
+							<span class="fa fa-star"></span>
+						</div>
+					</div>
+					<br />
+					<form action="/crear" method="post">
+						<div class="d-none d-xl-block d-md-none">
+							<div class="row">
+								<div class="col-2 col-md-1">
+									<img
+										src="/img/profile.png"
+										style="width: 38px; margin-right: 10px"
+										class="rounded-circle"
+									/>
+								</div>
 
-                <div class="col-10 col-md-11">
-                  <input
-                    name="content"
-                    class="form-control tw-input-light"
-                    placeholder="Que estas pensando?"
-                  />
-                </div>
-              </div>
-              <br />
+								<div class="col-10 col-md-11">
+									<input
+										name="content"
+										class="form-control tw-input-light"
+										placeholder="Que estas pensando?"
+									/>
+								</div>
+							</div>
+							<br />
 
-              <div class="row tw-separator">
-                <div class="col-10">
-                  <span class="fa fa-image"></span>
-                  <span class="fa fa-smile-o"></span>
-                </div>
-                <div class="col-2">
-                  <button class="btn tw-btn-primary">Miau</button>
-                </div>
-                <br />
-                <br />
-              </div>
-            </div>
-          </form>
-          <!--Los tweets-->
-          <% for(const tweet of tweets){ %>
-          <div class="row tw-border-bottom tw-timeline">
-            <div class="col-2 col-md-1">
-              <img
-                src="/img/profile.png"
-                style="width: 42px"
-                class="rounded-circle"
-              />
-            </div>
-            <div class="col-10 col-md-11">
-              <b><%= tweet.author.firstname %> <%= tweet.author.lastname %></b>
-              <lablel class="tw-label">@<%= tweet.author.username %></lablel>
-              <br />
-              <p><%= tweet.content %></p>
-              <div class="container" id="icons">
-                <span class="fa fa-comment-o"></span>
-                <span class="fa fa-retweet"></span>
-                <form
-                  method="POST"
-                  action="/favTweet/<%= tweet._id %>"
-                  id="favTweet"
-                >
-                  <input
-                    type="text"
-                    name="getTweetId"
-                    id="getTweetId"
-                    value="<%= tweet._id %>"
-                    style="display: none"
-                  />
-                  <button type="submit" id="btnlike">
-                    <% if (tweet.favoritedBy.includes(user._id)) { %>
-                    <span class="fa fa-heart fa-solid text-danger">
-                      <%= tweet.favoritedBy.length %>
-                    </span>
-                    <% }else { %>
-                    <span class="fa fa-heart-o"></span>
-                    <% } %>
-                  </button>
-                </form>
-                <form
-                  method="POST"
-                  action="/delete/<%= tweet._id %>"
-                  id="delete"
-                >
-                  <button type="submit" id="btntrash">
-                    <span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-trash"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-          <% } %>
-        </div>
-        <div class="col-3 d-none d-lg-block d-md-none">
-          <br />
-          <div class="row">
-            <div class="col-12">
-              <input
-                class="form-control tw-input-gray"
-                placeholder="Buscar en Kitter"
-              />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card tw-card">
-                <div class="card-body">
-                  <h5 class="card-title tw-card-title fw-bold">
-                    ¿Eres nuevo en Twitter?
-                  </h5>
-                  <label class="tw-label"
-                    >Regístrate ahora para obtener tu propia cronología
-                    personalizada.</label
-                  >
-                  <button class="btn btn-light tw-btn-dark w-100 mb-2">
-                    <span>
-                      <img
-                        src="https://www.google.com/favicon.ico"
-                        style="width: 24px; margin-right: 10px"
-                        class="rounded-circle"
-                      /> </span
-                    >Registrate con Google
-                  </button>
-                  <button class="btn btn-light tw-btn-dark w-100 mb-2">
-                    <span>
-                      <img
-                        src="https://www.apple.com/favicon.ico"
-                        style="width: 24px; margin-right: 10px"
-                        class="rounded-circle"
-                      />
-                    </span>
-                    Registrate con Apple
-                  </button>
-                  <button class="btn btn-light tw-btn-dark w-100">
-                    Registrate con tu teléfono
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br />
-          <div class="row">
-            <div class="col-12">
-              <div class="card tw-card">
-                <div class="card-body">
-                  <h5 class="card-title tw-card-title fw-bold">Tendencias</h5>
-                  <% const word = tweets[0].content.split(" ") %>
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <label class="tw-label">Política</label>
-                      <br />
-                      <% const polWord =
-                      word[Math.floor(Math.random()*word.length)] %> <%
-                      word.filter(e => e !== polWord) %>
-                      <b>#<%= polWord%></b>
-                      <p class="tw-label">12 likes</p>
-                    </div>
-                    <div class="d-flex flex-column align-items-center fw-bold">
-                      ...
-                    </div>
-                  </div>
+							<div class="row tw-separator">
+								<div class="col-10">
+									<span class="fa fa-image"></span>
+									<span class="fa fa-smile-o"></span>
+								</div>
+								<div class="col-2">
+									<button class="btn tw-btn-primary">Miau</button>
+								</div>
+								<br />
+								<br />
+							</div>
+						</div>
+					</form>
+					<!--Los tweets-->
+					<% for(const tweet of tweets){ %>
+					<div class="row tw-border-bottom tw-timeline">
+						<div class="col-2 col-md-1">
+							<img
+								src="/img/profile.png"
+								style="width: 42px"
+								class="rounded-circle"
+							/>
+						</div>
+						<div class="col-10 col-md-11">
+							<b><%= tweet.author.firstname %> <%= tweet.author.lastname %></b>
+							<lablel class="tw-label">@<%= tweet.author.username %></lablel>
+							<br />
+							<p><%= tweet.content %></p>
+							<div class="container" id="icons">
+								<span class="fa fa-comment-o"></span>
+								<span class="fa fa-retweet"></span>
+								<form
+									method="POST"
+									action="/favTweet/<%= tweet._id %>"
+									id="favTweet"
+								>
+									<input
+										type="text"
+										name="getTweetId"
+										id="getTweetId"
+										value="<%= tweet._id %>"
+										style="display: none"
+									/>
+									<button type="submit" id="btnlike">
+										<% if (tweet.favoritedBy.includes(user._id)) { %>
+										<span class="fa fa-heart fa-solid text-danger">
+											<%= tweet.favoritedBy.length %>
+										</span>
+										<% }else { %>
+										<span class="fa fa-heart-o"></span>
+										<% } %>
+									</button>
+								</form>
+								<form
+									method="POST"
+									action="/delete/<%= tweet._id %>"
+									id="delete"
+								>
+									<button type="submit" id="btntrash">
+										<span>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												width="16"
+												height="16"
+												fill="currentColor"
+												class="bi bi-trash"
+												viewBox="0 0 16 16"
+											>
+												<path
+													d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+												/>
+												<path
+													fill-rule="evenodd"
+													d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+												/>
+											</svg>
+										</span>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<% } %>
+				</div>
+				<div class="col-3 d-none d-lg-block d-md-none">
+					<br />
+					<div class="row">
+						<div class="col-12">
+							<input
+								class="form-control tw-input-gray"
+								placeholder="Buscar en Kitter"
+							/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="card tw-card">
+								<div class="card-body">
+									<h5 class="card-title tw-card-title fw-bold">
+										¿Eres nuevo en Kitter?
+									</h5>
+									<label class="tw-label">
+										Regístrate ahora para obtener tu propia cronología
+										personalizada.
+									</label>
+									<button class="btn btn-light tw-btn-dark w-100 mb-2">
+										<span>
+											<img
+												src="https://www.google.com/favicon.ico"
+												style="width: 24px; margin-right: 10px"
+												class="rounded-circle"
+											/>
+										</span>
+										Registrate con Google
+									</button>
+									<button class="btn btn-light tw-btn-dark w-100 mb-2">
+										<span>
+											<img
+												src="https://www.apple.com/favicon.ico"
+												style="width: 24px; margin-right: 10px"
+												class="rounded-circle"
+											/>
+										</span>
+										Registrate con Apple
+									</button>
+									<button class="btn btn-light tw-btn-dark w-100">
+										Registrate con tu teléfono
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-12">
+							<div class="card tw-card">
+								<div class="card-body">
+									<h5 class="card-title tw-card-title fw-bold">Tendencias</h5>
+									<% const word = tweets[0].content.split(" ") %>
+									<div class="d-flex justify-content-between">
+										<div>
+											<label class="tw-label">Política</label>
+											<br />
+											<% const polWord =
+											word[Math.floor(Math.random()*word.length)] %> <%
+											word.filter(e => e !== polWord) %>
+											<b>#<%= polWord%></b>
+											<p class="tw-label">12 likes</p>
+										</div>
+										<div class="d-flex flex-column align-items-center fw-bold">
+											...
+										</div>
+									</div>
 
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <label class="tw-label">Deportes</label>
-                      <br />
-                      <% const depWord =
-                      word[Math.floor(Math.random()*word.length)] %> <%
-                      word.filter(e => e !== depWord) %>
-                      <b>#<%= depWord%></b>
-                      <p class="tw-label">33 likes</p>
-                    </div>
-                    <div class="d-flex flex-column align-items-center fw-bold">
-                      ...
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <label class="tw-label">Mundo</label>
-                      <br />
-                      <% const worWord =
-                      word[Math.floor(Math.random()*word.length)] %> <%
-                      word.filter(e => e !== worWord) %>
-                      <b>#<%= worWord%></b>
-                      <p class="tw-label">20 likes</p>
-                    </div>
-                    <div class="d-flex flex-column align-items-center fw-bold">
-                      ...
-                    </div>
-                  </div>
-                  <a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
-                </div>
-              </div>
-            </div>
-          </div>
+									<div class="d-flex justify-content-between">
+										<div>
+											<label class="tw-label">Deportes</label>
+											<br />
+											<% const depWord =
+											word[Math.floor(Math.random()*word.length)] %> <%
+											word.filter(e => e !== depWord) %>
+											<b>#<%= depWord%></b>
+											<p class="tw-label">33 likes</p>
+										</div>
+										<div class="d-flex flex-column align-items-center fw-bold">
+											...
+										</div>
+									</div>
+									<div class="d-flex justify-content-between">
+										<div>
+											<label class="tw-label">Mundo</label>
+											<br />
+											<% const worWord =
+											word[Math.floor(Math.random()*word.length)] %> <%
+											word.filter(e => e !== worWord) %>
+											<b>#<%= worWord%></b>
+											<p class="tw-label">20 likes</p>
+										</div>
+										<div class="d-flex flex-column align-items-center fw-bold">
+											...
+										</div>
+									</div>
+									<a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
+								</div>
+							</div>
+						</div>
+					</div>
 
-          <br />
-          <div class="row">
-            <div class="col-12">
-              <div class="card tw-card">
-                <div class="card-body">
-                  <h5 class="card-title tw-card-title">A quien seguir</h5>
-                  <hr />
-                  <div class="row">
-                    <div class="col-2">
-                      <img
-                        src="/img/profile1.png"
-                        style="width: 40px"
-                        class="rounded-circle"
-                      />
-                    </div>
-                    <div class="col-6">
-                      <b><%= users[3].firstname + " "+ users[3].lastname%></b>
-                      <p class="tw-label">@<%= users[3].username%></p>
-                    </div>
-                    <div class="col-2">
-                      <button class="btn btn-light tw-btn-light">Seguir</button>
-                    </div>
-                  </div>
+					<br />
+					<div class="row">
+						<div class="col-12">
+							<div class="card tw-card">
+								<div class="card-body">
+									<h5 class="card-title tw-card-title">A quien seguir</h5>
+									<hr />
+									<div class="row">
+										<div class="col-2">
+											<img
+												src="/img/profile1.png"
+												style="width: 40px"
+												class="rounded-circle"
+											/>
+										</div>
+										<div class="col-6">
+											<b><%= users[3].firstname + " "+ users[3].lastname%></b>
+											<p class="tw-label">@<%= users[3].username%></p>
+										</div>
+										<div class="col-2">
+											<a
+												href="/profile/<%= String(users[3]._id) %>"
+												class="btn btn-light tw-btn-light"
+											>
+												Seguir
+											</a>
+										</div>
+									</div>
 
-                  <hr />
-                  <div class="row">
-                    <div class="col-2">
-                      <img
-                        src="/img/profile2.png"
-                        style="width: 40px"
-                        class="rounded-circle"
-                      />
-                    </div>
-                    <div class="col-6">
-                      <b><%= users[7].firstname + " "+ users[7].lastname%></b>
-                      <p class="tw-label">@<%= users[7].username%></p>
-                    </div>
-                    <div class="col-2">
-                      <button class="btn btn-light tw-btn-light">Seguir</button>
-                    </div>
-                  </div>
+									<hr />
+									<div class="row">
+										<div class="col-2">
+											<img
+												src="/img/profile2.png"
+												style="width: 40px"
+												class="rounded-circle"
+											/>
+										</div>
+										<div class="col-6">
+											<b><%= users[7].firstname + " "+ users[7].lastname%></b>
+											<p class="tw-label">@<%= users[7].username%></p>
+										</div>
+										<div class="col-2">
+											<a
+												href="/profile/<%= String(users[7]._id) %>"
+												class="btn btn-light tw-btn-light"
+											>
+												Seguir
+											</a>
+										</div>
+									</div>
 
-                  <hr />
-                  <div class="row">
-                    <div class="col-2">
-                      <img
-                        src="/img/profile3.png"
-                        style="width: 40px"
-                        class="rounded-circle"
-                      />
-                    </div>
-                    <div class="col-6">
-                      <b><%= users[6].firstname + " "+ users[6].lastname%></b>
-                      <p class="tw-label">@<%= users[6].username%></p>
-                    </div>
-                    <div class="col-2">
-                      <button class="btn btn-light tw-btn-light">Seguir</button>
-                    </div>
-                  </div>
+									<hr />
+									<div class="row">
+										<div class="col-2">
+											<img
+												src="/img/profile3.png"
+												style="width: 40px"
+												class="rounded-circle"
+											/>
+										</div>
+										<div class="col-6">
+											<b><%= users[6].firstname + " "+ users[6].lastname%></b>
+											<p class="tw-label">@<%= users[6].username%></p>
+										</div>
+										<div class="col-2">
+											<a
+												href="/profile/<%= String(users[6]._id) %>"
+												class="btn btn-light tw-btn-light"
+											>
+												Seguir
+											</a>
+										</div>
+									</div>
 
-                  <a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
-                  <br />
-                  <br />
-                  <a href="#" class="tw-link-light">Política de privacidad</a>
-                  <a href="#" class="tw-link-light">Cookies</a>
-                  <br />
-                  <a href="#" class="tw-link-light">Informaciones</a>
-                  <a href="#" class="tw-link-light">Mas</a>
-                  <br />
-                  <label class="tw-label">© 2019 Kitter</label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+									<a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
+									<br />
+									<br />
+									<a href="#" class="tw-link-light">Política de privacidad</a>
+									<a href="#" class="tw-link-light">Cookies</a>
+									<br />
+									<a href="#" class="tw-link-light">Informaciones</a>
+									<a href="#" class="tw-link-light">Mas</a>
+									<br />
+									<label class="tw-label">© 2019 Kitter</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"
+		></script>
+	</body>
 </html>

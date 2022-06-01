@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require("../controllers/publicController");
 
 //tweet individual
-router.get("/tweet/:id", controller.getOne);
+// router.get("/tweet/:id", controller.getOne);
 
 //Usuario individual
 //router.get("/user/:id", controller.getOneUser);

@@ -3,12 +3,12 @@ const Tweet = require("../models/Tweet");
 const passport = require("passport");
 
 module.exports = {
-	getOne: async (req, res) => {
-		const tweet = await Tweet.findOne({ _id: req.params.id }).populate(
-			"author"
-		);
-		res.render("tweet", { tweet });
-	},
+	// getOne: async (req, res) => {
+	// 	const tweet = await Tweet.findOne({ _id: req.params.id }).populate(
+	// 		"author"
+	// 	);
+	// 	res.render("tweet", { tweet });
+	// },
 	renderLogin: (req, res) => {
 		res.render("login");
 	},

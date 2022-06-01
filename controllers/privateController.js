@@ -10,6 +10,7 @@ module.exports = {
 		const tweets = await Tweet.find({
 			$or: [{ favoritedBy: req.user._id }, { author: req.user._id }],
 		}).populate("author");
+
 		const users = await User.find();
 		res.render("home", { tweets, user: req.user, users });
 	},
@@ -44,6 +45,8 @@ module.exports = {
 		console.log("entre a la rutaaaa");
 		//Me traigo el tuit que quiero chequear si el usuario likeo o no.
 		console.log(req.params.id);
+
+		//arranca aca
 		const tweetCheck = await Tweet.findById(req.params.id);
 
 		//Me sirve para saber si el usuario está o no en la lista de likers. 0 no likea, otro si.
@@ -84,10 +87,10 @@ module.exports = {
 		//Importante para lo que sigue: usuario A viene de req.user._id, usuario B viene de req.params.id
 
 		//Me traigo el user que quiero chequear si el usuario A followeó o no a B. Comparo con usuario A y B (ambos tienen followedBy y follows)
-		let userCheck = await User.findById(req.params.id);
+		const userCheck = await User.findById(req.params.id);
 
 		//Me sirve para saber si el usuario está o no en la lista de follows. 0 si A no sigue a B, otro número si A sigue a B
-		let hasUser = userCheck.followedBy.includes(req.user._id);
+		const hasUser = userCheck.followedBy.includes(req.user._id);
 
 		//Si A le hizo follow a B y aprieto, entonces lo voy a sacar del listado de array de seguidores de B (pide unfollow).
 		if (hasUser) {
@@ -157,14 +160,38 @@ module.exports = {
 		);
 		res.render("profile", { user: req.user, profile, userTweets });
 	},
+
+	// CUANDO SE DA FOLLOW REVISA SI EL USUSARIO YA ESTA EN EL ARRAY DE SEGUIDOS O NO
 	followUser: async (req, res) => {
-		await User.findByIdAndUpdate(req.params.id, {
-			$push: { followedBy: [req.user._id] },
-		});
-		console.log("estas en los seguidores de este usuario");
-		await User.findByIdAndUpdate(req.user._id, {
-			$push: { follows: [req.params.id] },
-		});
-		console.log("Estas siguiendo a este usuario");
+		const otherUser = await User.findById(req.params.id);
+		// SI EL USUARIO YA ESTA EN LA LISTA LO SACO
+		if (req.user.follows.includes(otherUser._id)) {
+			await User.findByIdAndUpdate(req.user._id, {
+				$pull: { follows: req.params.id },
+			});
+			console.log("hace unfollow");
+			// SACA AL QUE DA AL BOTON FOLLOW DE LA LISTA DEL OTRO USUARIO
+			await User.findByIdAndUpdate(req.params.id, {
+				$pull: { followedBy: req.user._id },
+			});
+			res.redirect(`/profile/${req.params.id}`);
+		} else {
+			// SI NO ESTA EN LA LISTA LO AGREGO
+			await User.findOneAndUpdate(req.params.id, {
+				$push: { follows: req.params.id },
+			});
+			console.log("hace follow");
+			// AGREAGA AL QUE DA CLICK AL BOTON, A LA LISTA DEL OTRO USUARIO
+			await User.findByIdAndUpdate(req.params.id, {
+				$push: { followedBy: req.user._id },
+			});
+			res.redirect(`/profile/${req.params.id}`);
+		}
+
+		// console.log("estas en los seguidores de este usuario");
+		// await User.findByIdAndUpdate(req.user._id, {
+		// 	$push: { follows: [req.params.id] },
+		// });
+		// console.log("Estas siguiendo a este usuario");
 	},
 };

@@ -25,6 +25,9 @@ module.exports = async (app) => {
 		done(null, user._id);
 	});
 	passport.deserializeUser(async function (id, done) {
+		// BUSCO EN LA BASE DATOS LO QUE ME PASAN POR LOGIN Y LO GUARDO
+		// EN REQ.USER(ESTO QUEDA GUARDADO PARA TODAS LAS RUTAS)
+
 		try {
 			const user = await User.findById(id);
 			done(null, user);
@@ -33,3 +36,4 @@ module.exports = async (app) => {
 		}
 	});
 };
+// REQ.USER LO CREA PASSPORT MIENTRAS EL USUARIO ESTE LOGUEADO, ADENTRO VIAJAN TODOS LOS DATOS DE ESE USUARIO
