@@ -27,7 +27,7 @@ router.get("/crear", controller.renderNewTweet);
 router.post("/crear", controller.newTweet);
 
 //borrar un tweet
-router.get("/delete/:id", controller.deleteTweet);
+router.post("/delete/:id", controller.deleteTweet);
 
 //logout
 router.get("/logout", controller.logout);

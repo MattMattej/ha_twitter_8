@@ -88,79 +88,82 @@ module.exports = {
     //Me sirve para saber si el usuario está o no en la lista de follows. 0 si A no sigue a B, otro número si A sigue a B
     let hasUser = userCheck.followedBy.includes(req.user._id);
 
-    //Si A le hizo follow a B y aprieto, entonces lo voy a sacar del listado de array de seguidores de B (pide unfollow).
-    if (hasUser) {
-      //Acá sacamos de la lista de followdBy de B al usuario A
-      await User.findByIdAndUpdate(
-        req.params.id,
-        {
-          $pull: {
-            followedBy: req.user._id,
-          },
-          $inc: {
-            followedCount: -1,
-          },
-        },
-        { new: true }
-      );
-      //Acá sacamos de la lista de follows de A al usuario B
-      await User.findByIdAndUpdate(
-        req.user._id,
-        {
-          $pull: {
-            follows: req.params.id,
-          },
-          $inc: {
-            followedCount: -1,
-          },
-        },
-        { new: true }
-      );
-    } else {
-      //Acá sumamos en la lista de followdBy de B al usuario A
-      await Tweet.findByIdAndUpdate(
-        req.params.id,
-        {
-          $push: {
-            followedBy: req.user._id,
-          },
-          $inc: {
-            followedCount: 1,
-          },
-        },
-        { new: true }
-      );
-      //Acá agregamos en la lista de follows de A al usuario B
-      await Tweet.findByIdAndUpdate(
-        req.user._id,
-        {
-          $push: {
-            follows: req.params.id,
-          },
-          $inc: {
-            followedCount: 1,
-          },
-        },
-        { new: true }
-      );
-    }
-  },
-  checkProfile: async (req, res) => {
-    const profile = await User.findById(req.params.id).populate(
-      "tweets",
-      "follows"
-      // "followedBy"
-    );
-    res.render("profile", { user: req.user, profile });
-  },
-  followUser: async (req, res) => {
-    await User.findByIdAndUpdate(req.params.id, {
-      $push: { followedBy: [req.user._id] },
-    });
-    console.log("estas en los seguidores de este usuario");
-    await User.findByIdAndUpdate(req.user._id, {
-      $push: { follows: [req.params.id] },
-    });
-    console.log("Estas siguiendo a este usuario");
-  },
+		//Si A le hizo follow a B y aprieto, entonces lo voy a sacar del listado de array de seguidores de B (pide unfollow).
+		if (hasUser) {
+			//Acá sacamos de la lista de followdBy de B al usuario A
+			await User.findByIdAndUpdate(
+				req.params.id,
+				{
+					$pull: {
+						followedBy: req.user._id,
+					},
+					$inc: {
+						followedCount: -1,
+					},
+				},
+				{ new: true }
+			);
+			//Acá sacamos de la lista de follows de A al usuario B
+			await User.findByIdAndUpdate(
+				req.user._id,
+				{
+					$pull: {
+						follows: req.params.id,
+					},
+					$inc: {
+						followedCount: -1,
+					},
+				},
+				{ new: true }
+			);
+		} else {
+			//Acá sumamos en la lista de followdBy de B al usuario A
+			await Tweet.findByIdAndUpdate(
+				req.params.id,
+				{
+					$push: {
+						followedBy: req.user._id,
+					},
+					$inc: {
+						followedCount: 1,
+					},
+				},
+				{ new: true }
+			);
+			//Acá agregamos en la lista de follows de A al usuario B
+			await Tweet.findByIdAndUpdate(
+				req.user._id,
+				{
+					$push: {
+						follows: req.params.id,
+					},
+					$inc: {
+						followedCount: 1,
+					},
+				},
+				{ new: true }
+			);
+		}
+	},
+	checkProfile: async (req, res) => {
+		const profile = await User.findById(req.params.id).populate(
+			"tweets",
+			"follows"
+			// "followedBy"
+		);
+		const userTweets = await Tweet.find({ _id: req.params.id }).populate(
+			"author"
+		);
+		res.render("profile", { user: req.user, profile, userTweets });
+	},
+	followUser: async (req, res) => {
+		await User.findByIdAndUpdate(req.params.id, {
+			$push: { followedBy: [req.user._id] },
+		});
+		console.log("estas en los seguidores de este usuario");
+		await User.findByIdAndUpdate(req.user._id, {
+			$push: { follows: [req.params.id] },
+		});
+		console.log("Estas siguiendo a este usuario");
+	},
 };
