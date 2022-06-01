@@ -1,7 +1,7 @@
 const Tweet = require("../models/Tweet");
 const User = require("../models/User");
 const mongoose = require("mongoose");
-
+//prueba
 module.exports = {
 	getAll: async (req, res) => {
 		if (!req.user) {
