@@ -1,0 +1,224 @@
+.tw-btn-primary{
+    background-color: #009df6;
+    color: white;
+    border-radius: 20px;
+  }
+  
+  .tw-btn-light{
+    color: #009df6;
+    border:solid 1px #009df6;
+    border-radius: 24px;
+  }
+  
+  .tw-btn-light:hover{
+    color: white;
+    background-color: #009df6;
+    border:none;
+  }
+  
+  .tw-card-gray{
+    background-color: #f4f8fa;
+  }
+  
+  .tw-link{
+    color: #13171a;
+    font-weight: 700;
+    text-decoration: none !important;
+  }
+  
+  .tw-link:hover{
+    color: #009df6;
+    font-weight: 700;
+    text-decoration: none !important;
+  }
+  
+  .tw-link-primary{
+    color: #009df6;
+    font-weight: 400;
+  }
+  
+  .tw-link-primary:hover{
+    color: #009df6;
+  }
+  
+  .tw-link-light{
+    color: #90a0ab;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .tw-link-light:hover{
+    color: #90a0ab;
+  }
+  
+  .tw-label{
+    color: #90a0ab;
+  }
+  
+  .card-body .tw-label{
+    font-size: 12px;
+  }
+  
+  .tw-border-right{
+    border-right: solid 1px #e5ecf0 !important;
+  }
+  
+  .tw-border-left{
+    border-left: solid 1px #e5ecf0 !important;
+  }
+  
+  .tw-border-bottom{
+    border-bottom: solid 1px #e5ecf0 !important;
+  }
+  
+  .tw-list-group-item {
+    border: none;
+  }
+  
+  .tw-input-light{
+    border:none;
+  }
+  
+  .tw-img-preview{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .tw-card-text{
+    font-size: 14px;
+    color: #90a0ab;
+  }
+  
+  .tw-input-gray{
+    background-color: #e5ecf0;
+    border-radius: 20px;
+    border:none;
+  }
+  
+  .tw-card{
+    background-color: #f4f8fa;
+    border-radius: 20px;
+    border: none;
+  }
+  
+  .tw-card-item:hover{
+    background-color: rgb(101, 119, 134);
+  }
+  
+  .tw-card-title{
+    font-size: 18px;
+  }
+  
+  .tw-timeline{
+    padding-top: 10px;
+  }
+  
+  .tw-timeline:hover{
+    background-color: #f4f8fa;
+  }
+  
+  .tw-timeline .fa{
+    font-size:16px;
+    color: rgb(101, 119, 134);
+  }
+  
+  .tw-separator{
+    border-bottom: 12px solid #e5ecf0;
+  }
+  
+  .tw-separator .fa{
+    color: #009df6;
+  }
+  
+  .fa{
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .fa-twitter{
+    color: #009df6;
+    font-size: 34px;
+  }
+  
+  p{
+    text-align: justify;
+  }
+  
+
+
+
+  body
+{
+background: #eaeced;
+font-family:arial;
+}
+
+.twitterwidget
+{
+width:750px;
+background:#fff;
+border-radius:5px;
+margin:0px 0px 30px 0px;
+overflow:auto;
+-webkit-box-shadow: 0 8px 40px -6px #a3a5a6;
+-moz-box-shadow: 0 8px 40px -6px #a3a5a6;
+box-shadow: 0 8px 40px -6px #a3a5a6;
+}
+.userprofile
+{
+padding:40px;
+overflow:auto;
+}
+
+.userprofile img
+{
+width:120px;
+height:auto;
+display:block;
+float:left;
+border-radius:5px;
+}
+
+h2
+{
+color:#010101;
+padding: 30px 40px;
+float:left;
+font-size: 2em;
+}
+h2 a
+{
+text-decoration:none;
+color:#fc4400;
+font-size:18px;
+display:block;
+padding:5px 0px 0px 0px;
+}
+
+.info div
+{
+border-top:1px solid #f7f7f7;
+border-left:1px solid #f7f7f7;
+float:left;
+padding:20px 0px;
+width:198px;
+text-align:center;
+font-size: 1.8em;
+color:#2a2c2d;
+font-weight:bold;
+}
+.info div:first-child
+{
+border-left:none;
+}
+
+.info div span
+{
+display: block;
+font-size: 0.4em!important;
+font-weight: normal!important;
+text-transform:uppercase;
+color:#2a2c2d;
+}
+

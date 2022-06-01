@@ -1,155 +1,312 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-
-  <body>
-    
-<div class="sidebar">
-  <i class="fab fa-twitter"></i>
-  <div class="sidebarOption active">
-    <span class="material-icons"> home </span>
-    <a href="/">Home</a>
-  </div>
-  <% if (!user) { %>
-    <div class="sidebarOption">
-      <span class="material-icons">
-        login
-      </span>
-      <a href="/login">Login</a>
-    </div>
-
-    <div class="sidebarOption">
-      <span class="material-icons">
-        how_to_reg
-      </span>
-      <a href="/registro">registro</a>
-    </div>
-    <% }else{ %>
-
-
-
-      <div class="sidebarOption">
-        <span class="material-icons">
-          account_circle
-        </span>
-        <a href="/profile">Profile</a>
-      </div>
-
-      <div class="sidebarOption">
-        <span class="material-icons">
-          logout
-        </span>
-        <a href="/logout" class="btn btn-danger">log-out</a>
-      </div>
-
-      <% } %>
-        <button class="sidebar__tweet">Tweet</button>
-</div>
-    
-    <!-- feed starts -->
-    <div class="feed">
-      <div class="feed__header">
-        <h2>Home</h2>
-      </div>
-
-      <!-- tweetbox starts -->
-      <div class="tweetBox">
-        <form action="/crear" method="post">
-          <div class="tweetbox__input">
-            <img
-              src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png"
-              alt=""
-            />
-            <input type="text" placeholder="What's happening?" name="content" />
+<html lang="es">
+	<head>
+		<title>Twitter</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/css/profile.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-3 col-sm-2">
+					<br />
+					<ul class="list-group">
+						<li class="list-group-item tw-list-group-item">
+							<a href="/" class="tw-link">
+								<span class="fa fa-twitter"></span>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span class="fa fa-home"></span>
+								<label class="d-none d-xl-inline">Feed</label>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span class="fa fa-hashtag"></span>
+								<label class="d-none d-xl-inline">Explorar</label>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span class="fa fa-bell"></span>
+								<label class="d-none d-xl-inline">Notificaciones</label>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span class="fa fa-envelope"></span>
+								<label class="d-none d-xl-inline">Mensajes</label>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span class="fa fa-bookmark"></span>
+								<label class="d-none d-xl-inline">???</label>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span class="fa fa-list"></span>
+								<label class="d-none d-xl-inline">Listas</label>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span>
+									<img
+										src="/img/profile.png"
+										style="width: 24px; margin-right: 10px"
+										class="rounded-circle"
+									/>
+								</span>
+								<label class="d-none d-xl-inline">Perfil</label>
+							</a>
+						</li>
+						<li class="list-group-item tw-list-group-item">
+							<a href="#" class="tw-link">
+								<span class="fa fa-ellipsis-h"></span>
+								<label class="d-none d-xl-inline">Mas</label>
+							</a>
+						</li>
+					</ul>
+					<br />
+					<a
+						href="/crear"
+						class="btn btn-light btn-block btn-lg tw-btn-primary d-none d-lg-block"
+					>
+						Tweet
+					</a>
+					<button
+						class="btn btn-light btn-block btn-lg tw-btn-primary d-lg-none"
+					>
+						<span class="fa fa-pencil"></span>
+					</button>
+				</div>
+				<div class="col-9 col-sm-7 tw-border-right">
+					<br />
+					<div class="row tw-border-bottom">
+						<div class="col-10 col-md-11">
+							<h5><strong>Nombre Usuario</strong></h5>
+              <p class="fs-6 text">30 tweets</p>
+						</div>
+						<div class="col-1">
+							<span class="fa fa-star"></span>
+						</div>
+					</div>
+					<br />
+          
+          <div class="twitterwidget">
+            <div class="userprofile">
+              <img src="/img/profile.png" />
+            <h2>Jitendra Berde <a href="#" target="_blank">@JitendraBerde</a></h2>
+            <button class="btn-primary">follow</button>
+            </div>
+           
+            <div class="info">
+               <div>90<span>Tweets</span></div>
+             <div>70<span>Following</span></div>
+             <div>11<span>Followers</span></div>
+            </div>
           </div>
-          <button class="tweetBox__tweetButton">Tweet</button>
-        </form>
-      </div>
-      <!-- tweetbox ends -->
 
-     
 
-    <div class="widgets">
-      <div class="widgets__input">
-        <span class="material-icons widgets__searchIcon"> search </span>
-        <input type="text" placeholder="Search Twitter" />
-      </div>
+					<form action="/crear" method="post">
+						<div class="d-none d-xl-block d-md-none">
+							<div class="row">
+								<div class="col-2 col-md-1">
+									<img
+										src="/img/profile.png"
+										style="width: 38px; margin-right: 10px"
+										class="rounded-circle"
+									/>
+								</div>
 
-      <div class="widgets__widgetContainer">
-        <h2>What's happening?</h2>
-        <blockquote class="twitter-tweet">
-          <p lang="en" dir="ltr">
-            Sunsets don&#39;t get much better than this one over
-            <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw"
-              >@GrandTetonNPS</a
-            >.
-            <a
-              href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw"
-              >#nature</a
-            >
-            <a
-              href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw"
-              >#sunset</a
-            >
-            <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a>
-          </p>
-          &mdash; US Department of the Interior (@Interior)
-          <a
-            href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw"
-            >May 5, 2014</a
-          >
-        </blockquote>
-      </div>
-    </div>
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    ></script>
-    <script src="/js/client.js"></script>
-  </body>
+								<div class="col-10 col-md-11">
+									<input
+										name="content"
+										class="form-control tw-input-light"
+										placeholder="Que estas pensando?"
+									/>
+								</div>
+							</div>
+							<br />
+
+							<div class="row tw-separator">
+								<div class="col-10">
+									<span class="fa fa-image"></span>
+									<span class="fa fa-smile-o"></span>
+								</div>
+								<div class="col-2">
+									<button class="btn tw-btn-primary">Tweet</button>
+								</div>
+								<br />
+								<br />
+							</div>
+						</div>
+					</form>
+					<!--Los tweets-->
+					
+					<div class="row tw-border-bottom tw-timeline">
+						<div class="col-2 col-md-1">
+							<img
+								src="/img/profile.png"
+								style="width: 42px"
+								class="rounded-circle"
+							/>
+						</div>
+						<div class="col-10 col-md-11">
+							<b></b>
+							<lablel class="tw-label">@</lablel>
+							<br />
+							<p></p>
+							<span class="fa fa-comment-o"></span>
+							<span class="fa fa-retweet"></span>
+							<span class="fa fa-heart-o"></span>
+							<span class="fa fa-upload"></span>
+							<p></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-3 d-none d-xl-block d-md-none">
+					<br />
+					<div class="row">
+						<div class="col-12">
+							<input
+								class="form-control tw-input-gray"
+								placeholder="Buscar en Kitter"
+							/>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-12">
+							<div class="card tw-card">
+								<div class="card-body">
+									<h5 class="card-title tw-card-title">Destacado</h5>
+									<hr />
+									<label class="tw-label">Assuntos en este momento</label>
+									<br />
+									<b>Lorem ipsum</b>
+									<p class="tw-label">503 mil twittes</p>
+									<hr />
+									<b>Lorem ipsum</b>
+									<p class="tw-label">53 mil twittes</p>
+									<hr />
+									<b>Lorem ipsum</b>
+									<p class="tw-label">3.410 mil twittes</p>
+									<hr />
+									<a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<br />
+					<div class="row">
+						<div class="col-12">
+							<div class="card tw-card">
+								<div class="card-body">
+									<h5 class="card-title tw-card-title">A quien seguir</h5>
+									<hr />
+									<div class="row">
+										<div class="col-2">
+											<img
+												src="/img/profile.png"
+												style="width: 40px"
+												class="rounded-circle"
+											/>
+										</div>
+										<div class="col-6">
+											<b>Lorem ipsum</b>
+											<p class="tw-label">@loremipsum</p>
+										</div>
+										<div class="col-2">
+											<button class="btn btn-light tw-btn-light">Seguir</button>
+										</div>
+									</div>
+
+									<hr />
+									<div class="row">
+										<div class="col-2">
+											<img
+												src="/img/profile.png"
+												style="width: 40px"
+												class="rounded-circle"
+											/>
+										</div>
+										<div class="col-6">
+											<b>Lorem ipsum</b>
+											<p class="tw-label">@loremipsum</p>
+										</div>
+										<div class="col-2">
+											<button class="btn btn-light tw-btn-light">Seguir</button>
+										</div>
+									</div>
+
+									<hr />
+									<div class="row">
+										<div class="col-2">
+											<img
+												src="/img/profile.png"
+												style="width: 40px"
+												class="rounded-circle"
+											/>
+										</div>
+										<div class="col-6">
+											<b>Lorem ipsum</b>
+											<p class="tw-label">@loremipsum</p>
+										</div>
+										<div class="col-2">
+											<button class="btn btn-light tw-btn-light">Seguir</button>
+										</div>
+									</div>
+
+									<a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
+									<br />
+									<br />
+									<a href="#" class="tw-link-light">Política de privacidad</a>
+									<a href="#" class="tw-link-light">Cookies</a>
+									<br />
+									<a href="#" class="tw-link-light">Informaciones</a>
+									<a href="#" class="tw-link-light">Mas</a>
+									<br />
+									<label class="tw-label">© 2019 Kitter</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+	</body>
 </html>
-
-
-
-
-
-
-
-
-  <!--   <div class="container">
-      <h1 class="title"><%= user.username %> profile</h1>
-      <div class="perfil">
-        <img src="<%= user.avatar %> " alt="perfil" class="pic" />
-        <p><%= user.email %></p>
-        <p><%= user.username %></p>
-        <p><%= user.firstname %> <%= user.lastname %></p>
-        <label for="description">Bio</label>
-        <textarea name="description" id="description" cols="30" rows="10"<%= user.description %></textarea
-        >
-      </div>
-    </div> -->
- 
