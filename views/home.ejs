@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="es">
 	<head>
 		<title>Twitter</title>
 		<link
@@ -23,14 +23,14 @@
 					<br />
 					<ul class="list-group">
 						<li class="list-group-item tw-list-group-item">
-							<a href="#" class="tw-link">
+							<a href="/" class="tw-link">
 								<span class="fa fa-twitter"></span>
 							</a>
 						</li>
 						<li class="list-group-item tw-list-group-item">
 							<a href="#" class="tw-link">
 								<span class="fa fa-home"></span>
-								<label class="d-none d-xl-inline">Página inicial</label>
+								<label class="d-none d-xl-inline">Feed</label>
 							</a>
 						</li>
 						<li class="list-group-item tw-list-group-item">
@@ -98,7 +98,7 @@
 					<br />
 					<div class="row tw-border-bottom">
 						<div class="col-10 col-md-11">
-							<h5><strong>Página inicial</strong></h5>
+							<h5><strong>Pagina principal</strong></h5>
 						</div>
 						<div class="col-1">
 							<span class="fa fa-star"></span>
@@ -118,7 +118,7 @@
 							<div class="col-10 col-md-11">
 								<input
 									class="form-control tw-input-light"
-									placeholder="O que está acontecendo?"
+									placeholder="Que estas pensando?"
 								/>
 							</div>
 						</div>
@@ -136,6 +136,8 @@
 						</div>
 					</div>
 
+					<!--Los tweets-->
+					<% for(const tweet of tweets){ %>
 					<div class="row tw-border-bottom tw-timeline">
 						<div class="col-2 col-md-1">
 							<img
@@ -145,14 +147,10 @@
 							/>
 						</div>
 						<div class="col-10 col-md-11">
-							<b>Lorem ipsum dolor</b>
-							<lablel class="tw-label">@loremipsum · 5s</lablel>
+							<b><%= tweet.author.firstname %> <%= tweet.author.lastname %></b>
+							<lablel class="tw-label">@l<%= tweet.author.username %></lablel>
 							<br />
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Suspendisse non molestie velit. Etiam sit amet tincidunt sem.
-								Mauris enim elit, semper et nisl in, sollicitudin luctus odio.
-							</p>
+							<p><%= tweet.content %></p>
 							<span class="fa fa-comment-o"></span>
 							<span class="fa fa-retweet"></span>
 							<span class="fa fa-heart-o"></span>
@@ -161,13 +159,14 @@
 						</div>
 					</div>
 				</div>
+				<% } %>
 				<div class="col-3 d-none d-xl-block d-md-none">
 					<br />
 					<div class="row">
 						<div class="col-12">
 							<input
 								class="form-control tw-input-gray"
-								placeholder="Buscar no Twitter"
+								placeholder="Buscar en Kitter"
 							/>
 						</div>
 					</div>
@@ -176,7 +175,7 @@
 						<div class="col-12">
 							<div class="card tw-card">
 								<div class="card-body">
-									<h5 class="card-title tw-card-title">Assuntos para vos</h5>
+									<h5 class="card-title tw-card-title">Destacado</h5>
 									<hr />
 									<label class="tw-label">Assuntos en este momento</label>
 									<br />
@@ -200,7 +199,7 @@
 						<div class="col-12">
 							<div class="card tw-card">
 								<div class="card-body">
-									<h5 class="card-title tw-card-title">Quem seguir</h5>
+									<h5 class="card-title tw-card-title">A quien seguir</h5>
 									<hr />
 									<div class="row">
 										<div class="col-2">
