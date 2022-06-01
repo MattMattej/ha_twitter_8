@@ -20,6 +20,8 @@ router.get("/profile/:id", controller.checkProfile);
 // });
 router.post("/favTweet/:id", controller.favTweet);
 
+router.post("/follow/:id", controller.followUser);
+
 //crear un tweet
 router.get("/crear", controller.renderNewTweet);
 router.post("/crear", controller.newTweet);

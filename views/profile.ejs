@@ -115,7 +115,9 @@
 								<%= profile.firstname %> <%= profile.lastname %>
 								<a href="#" target="_blank">@<%= profile.username %></a>
 							</h2>
-							<button class="btn-primary">follow</button>
+							<form action="/follow/<%= profile._id %> " method="post">
+								<button type="submit" class="btn-primary">follow</button>
+							</form>
 						</div>
 
 						<div class="info">
