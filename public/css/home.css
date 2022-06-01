@@ -152,3 +152,16 @@ p{
 .kittydark{
   height: 2.5rem;
 }
+#icons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+#btntrash {
+  border: none;
+  background: none;
+}
+
