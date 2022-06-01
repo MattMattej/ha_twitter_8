@@ -150,7 +150,10 @@ module.exports = {
 			"follows"
 			// "followedBy"
 		);
-		res.render("profile", { user: req.user, profile });
+		const userTweets = await Tweet.find({ _id: req.params.id }).populate(
+			"author"
+		);
+		res.render("profile", { user: req.user, profile, userTweets });
 	},
 	followUser: async (req, res) => {
 		await User.findByIdAndUpdate(req.params.id, {

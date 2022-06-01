@@ -7,4 +7,5 @@ likeForm.addEventListener("submit", async function (e) {
 	const response = await fetch(`/favTweet/${getTweetId.value}`, {
 		method: "POST",
 	});
+	window.location.reload();
 });
