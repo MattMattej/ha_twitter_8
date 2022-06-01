@@ -3,6 +3,15 @@ const User = require("../models/User");
 const mongoose = require("mongoose");
 
 module.exports = {
+	getAll: async (req, res) => {
+		if (!req.user) {
+			return console.log("not allowed");
+		}
+		const tweets = await Tweet.find({ favoritedBy: req.user._id }).populate(
+			"author"
+		);
+		res.render("home", { tweets, user: req.user });
+	},
 	renderNewTweet: async (req, res) => {
 		res.render("newTweet");
 	},

@@ -2,9 +2,6 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/publicController");
 
-//home con la lista de tweets
-router.get("/", controller.getAll);
-
 //tweet individual
 router.get("/tweet/:id", controller.getOne);
 

@@ -3,10 +3,6 @@ const Tweet = require("../models/Tweet");
 const passport = require("passport");
 
 module.exports = {
-	getAll: async (req, res) => {
-		const tweets = await Tweet.find().populate("author");
-		res.render("home", { tweets, user: req.user });
-	},
 	getOne: async (req, res) => {
 		const tweet = await Tweet.findOne({ _id: req.params.id }).populate(
 			"author"
@@ -30,7 +26,7 @@ module.exports = {
 		res.redirect("/");
 	},
 	authenticateLogin: passport.authenticate("local", {
-		successRedirect: "/profile",
+		successRedirect: "/",
 		failureRedirect: "/login",
 	}),
 };

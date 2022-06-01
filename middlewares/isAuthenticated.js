@@ -1,10 +1,7 @@
 module.exports = (req, res, next) => {
-	if (req.user) {
-		console.log("si esta logueado");
+	if (!req.user) {
+		res.redirect("/login");
 		return next();
 	}
-	console.log("no esta logueado");
-	res.redirect("/");
+	return next();
 };
-
-//me parece que esto no anda!!!

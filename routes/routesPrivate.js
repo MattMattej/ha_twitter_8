@@ -4,8 +4,9 @@ const controller = require("../controllers/privateController");
 const isAuthenticated = require("../middlewares/isAuthenticated");
 const Tweet = require("../models/Tweet"); //se va ahora
 
-// router.use(isAuthenticated);
+router.use(isAuthenticated);
 
+router.get("/", controller.getAll);
 //pagina de perfil
 router.get("/profile", (req, res) => {
 	res.render("profile", { user: req.user });
