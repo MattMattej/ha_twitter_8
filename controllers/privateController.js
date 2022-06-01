@@ -39,7 +39,7 @@ module.exports = {
 		// console, log(tweetCheck);
 
 		//Me sirve para saber sis el usuario está o no en la lista de likers. 0 no likea, otro si.
-		let hasUser = tweetCheck.favoritedBy.includes(req.user._id);
+		let hasUser = tweetCheck.favoritedBy.includes(req.user.id);
 		console.log(hasUser);
 
 		// Si likeo, entonces lo voy a sacar del listado de array (pide dislike).
