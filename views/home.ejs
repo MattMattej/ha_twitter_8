@@ -1,322 +1,322 @@
 <html lang="es">
-	<head>
-		<title>Twitter</title>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
-		<link
-			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-			rel="stylesheet"
-			integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-			crossorigin="anonymous"
-		/>
-		<link rel="stylesheet" href="/css/home.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-3 col-sm-2">
-					<br />
-					<ul class="list-group">
-						<li class="list-group-item tw-list-group-item">
-							<a href="/" class="tw-link">
-								<span>
-									<img
-										src="/img/kittierdark.png"
-										alt="miau"
-										class="kittydark"
-									/>
-								</span>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="/" class="tw-link">
-								<span class="fa fa-home"></span>
-								<label class="d-none d-xl-inline">Feed</label>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="#" class="tw-link">
-								<span class="fa fa-hashtag"></span>
-								<label class="d-none d-xl-inline">Explorar</label>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="#" class="tw-link">
-								<span class="fa fa-bell"></span>
-								<label class="d-none d-xl-inline">Notificaciones</label>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="#" class="tw-link">
-								<span class="fa fa-envelope"></span>
-								<label class="d-none d-xl-inline">Mensajes</label>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="#" class="tw-link">
-								<span class="fa fa-bookmark"></span>
-								<label class="d-none d-xl-inline">Favoritos</label>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="#" class="tw-link">
-								<span class="fa fa-list"></span>
-								<label class="d-none d-xl-inline">Listas</label>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="/profile/<%= user._id %> " class="tw-link">
-								<span>
-									<img
-										src="/img/profile.png"
-										style="width: 24px; margin-right: 10px"
-										class="rounded-circle"
-									/>
-								</span>
-								<label class="d-none d-xl-inline">Perfil</label>
-							</a>
-						</li>
-						<li class="list-group-item tw-list-group-item">
-							<a href="#" class="tw-link">
-								<span class="fa fa-ellipsis-h"></span>
-								<label class="d-none d-xl-inline">Mas</label>
-							</a>
-						</li>
-					</ul>
-					<br />
-					<a
-						href="/crear"
-						class="btn btn-light btn-block btn-lg tw-btn-primary d-none d-lg-block"
-					>
-						Tweet
-					</a>
-					<button
-						class="btn btn-light btn-block btn-lg tw-btn-primary d-lg-none"
-					>
-						<span class="fa fa-pencil"></span>
-					</button>
-				</div>
-				<div class="col-8 col-sm-7 tw-border-right">
-					<br />
-					<div class="row tw-border-bottom">
-						<div class="col-10 col-md-11">
-							<h5><strong>Pagina principal</strong></h5>
-						</div>
-						<div class="col-1">
-							<span class="fa fa-star"></span>
-						</div>
-					</div>
-					<br />
-					<form action="/crear" method="post">
-						<div class="d-none d-xl-block d-md-none">
-							<div class="row">
-								<div class="col-2 col-md-1">
-									<img
-										src="/img/profile.png"
-										style="width: 38px; margin-right: 10px"
-										class="rounded-circle"
-									/>
-								</div>
+  <head>
+    <title>Twitter</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3 col-sm-2">
+          <br />
+          <ul class="list-group">
+            <li class="list-group-item tw-list-group-item">
+              <a href="/" class="tw-link">
+                <span>
+                  <img
+                    src="/img/kittierdark.png"
+                    alt="miau"
+                    class="kittydark"
+                  />
+                </span>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="/" class="tw-link">
+                <span class="fa fa-home"></span>
+                <label class="d-none d-xl-inline">Feed</label>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="#" class="tw-link">
+                <span class="fa fa-hashtag"></span>
+                <label class="d-none d-xl-inline">Explorar</label>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="#" class="tw-link">
+                <span class="fa fa-bell"></span>
+                <label class="d-none d-xl-inline">Notificaciones</label>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="#" class="tw-link">
+                <span class="fa fa-envelope"></span>
+                <label class="d-none d-xl-inline">Mensajes</label>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="#" class="tw-link">
+                <span class="fa fa-bookmark"></span>
+                <label class="d-none d-xl-inline">Favoritos</label>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="#" class="tw-link">
+                <span class="fa fa-list"></span>
+                <label class="d-none d-xl-inline">Listas</label>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="/profile/<%= user._id %> " class="tw-link">
+                <span>
+                  <img
+                    src="/img/profile.png"
+                    style="width: 24px; margin-right: 10px"
+                    class="rounded-circle"
+                  />
+                </span>
+                <label class="d-none d-xl-inline">Perfil</label>
+              </a>
+            </li>
+            <li class="list-group-item tw-list-group-item">
+              <a href="#" class="tw-link">
+                <span class="fa fa-ellipsis-h"></span>
+                <label class="d-none d-xl-inline">Mas</label>
+              </a>
+            </li>
+          </ul>
+          <br />
+          <a
+            href="/crear"
+            class="btn btn-light btn-block btn-lg tw-btn-primary d-none d-lg-block"
+          >
+            Tweet
+          </a>
+          <button
+            class="btn btn-light btn-block btn-lg tw-btn-primary d-lg-none"
+          >
+            <span class="fa fa-pencil"></span>
+          </button>
+        </div>
+        <div class="col-8 col-sm-7 tw-border-right">
+          <br />
+          <div class="row tw-border-bottom">
+            <div class="col-10 col-md-11">
+              <h5><strong>Pagina principal</strong></h5>
+            </div>
+            <div class="col-1">
+              <span class="fa fa-star"></span>
+            </div>
+          </div>
+          <br />
+          <form action="/crear" method="post">
+            <div class="d-none d-xl-block d-md-none">
+              <div class="row">
+                <div class="col-2 col-md-1">
+                  <img
+                    src="/img/profile.png"
+                    style="width: 38px; margin-right: 10px"
+                    class="rounded-circle"
+                  />
+                </div>
 
-								<div class="col-10 col-md-11">
-									<input
-										name="content"
-										class="form-control tw-input-light"
-										placeholder="Que estas pensando?"
-									/>
-								</div>
-							</div>
-							<br />
+                <div class="col-10 col-md-11">
+                  <input
+                    name="content"
+                    class="form-control tw-input-light"
+                    placeholder="Que estas pensando?"
+                  />
+                </div>
+              </div>
+              <br />
 
-							<div class="row tw-separator">
-								<div class="col-10">
-									<span class="fa fa-image"></span>
-									<span class="fa fa-smile-o"></span>
-								</div>
-								<div class="col-2">
-									<button class="btn tw-btn-primary">Tweet</button>
-								</div>
-								<br />
-								<br />
-							</div>
-						</div>
-					</form>
-					<!--Los tweets-->
-					<% for(const tweet of tweets){ %>
-					<div class="row tw-border-bottom tw-timeline">
-						<div class="col-2 col-md-1">
-							<img
-								src="/img/profile.png"
-								style="width: 42px"
-								class="rounded-circle"
-							/>
-						</div>
-						<div class="col-10 col-md-11">
-							<b><%= tweet.author.firstname %> <%= tweet.author.lastname %></b>
-							<lablel class="tw-label">@<%= tweet.author.username %></lablel>
-							<br />
-							<p><%= tweet.content %></p>
-							<span class="fa fa-comment-o"></span>
-							<span class="fa fa-retweet"></span>
-							<form
-								method="POST"
-								action="/favTweet/<%= tweet._id %>"
-								id="favTweet"
-							>
-								<input
-									type="text"
-									name="getTweetId"
-									id="getTweetId"
-									value="<%= tweet._id %>"
-									style="display: none"
-								/>
-								<button type="submit" class="btnlike">
-									<% if (tweet.favoritedBy.includes(user._id)) { %>
-									<span class="fa fa-heart fa-solid text-danger">
-										<%= tweet.favoritedBy.length %>
-									</span>
-									<% }else { %>
-									<span class="fa fa-heart-o"></span>
-									<% } %>
-								</button>
-							</form>
-							<span class="fa fa-upload"></span>
-							<p></p>
-						</div>
-					</div>
-					<% } %>
-				</div>
-				<div class="col-3 d-none d-xl-block d-md-none">
-					<br />
-					<div class="row">
-						<div class="col-12">
-							<input
-								class="form-control tw-input-gray"
-								placeholder="Buscar en Kitter"
-							/>
-						</div>
-					</div>
-					<br />
-					<div class="row">
-						<div class="col-12">
-							<div class="card tw-card">
-								<div class="card-body">
-									<h5 class="card-title tw-card-title">Destacado</h5>
-									<hr />
-									<label class="tw-label">Asuntos en este momento</label>
-									<br />
-									<b>Lorem ipsum</b>
-									<p class="tw-label">503 mil twittes</p>
-									<hr />
-									<b>Lorem ipsum</b>
-									<p class="tw-label">53 mil twittes</p>
-									<hr />
-									<b>Lorem ipsum</b>
-									<p class="tw-label">3.410 mil twittes</p>
-									<hr />
-									<a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
-								</div>
-							</div>
-						</div>
-					</div>
+              <div class="row tw-separator">
+                <div class="col-10">
+                  <span class="fa fa-image"></span>
+                  <span class="fa fa-smile-o"></span>
+                </div>
+                <div class="col-2">
+                  <button class="btn tw-btn-primary">Tweet</button>
+                </div>
+                <br />
+                <br />
+              </div>
+            </div>
+          </form>
+          <!--Los tweets-->
+          <% for(const tweet of tweets){ %>
+          <div class="row tw-border-bottom tw-timeline">
+            <div class="col-2 col-md-1">
+              <img
+                src="/img/profile.png"
+                style="width: 42px"
+                class="rounded-circle"
+              />
+            </div>
+            <div class="col-10 col-md-11">
+              <b><%= tweet.author.firstname %> <%= tweet.author.lastname %></b>
+              <lablel class="tw-label">@<%= tweet.author.username %></lablel>
+              <br />
+              <p><%= tweet.content %></p>
+              <div class="row">
+                <span class="fa fa-comment-o"></span>
+                <span class="fa fa-retweet"></span>
+                <form
+                  method="POST"
+                  action="/favTweet/<%= tweet._id %>"
+                  id="favTweet"
+                >
+                  <input
+                    type="text"
+                    name="getTweetId"
+                    id="getTweetId"
+                    value="<%= tweet._id %>"
+                    style="display: none"
+                  />
+                  <button type="submit" id="btnlike">
+                    <% if (tweet.favoritedBy.includes(user._id)) { %>
+                    <span class="fa fa-heart fa-solid text-danger">
+                      <%= tweet.favoritedBy.length %>
+                    </span>
+                    <% }else { %>
+                    <span class="fa fa-heart-o"></span>
+                    <% } %>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <div class="col-3 d-none d-xl-block d-md-none">
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <input
+                class="form-control tw-input-gray"
+                placeholder="Buscar en Kitter"
+              />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <div class="card tw-card">
+                <div class="card-body">
+                  <h5 class="card-title tw-card-title">Destacado</h5>
+                  <hr />
+                  <label class="tw-label">Asuntos en este momento</label>
+                  <br />
+                  <b>Lorem ipsum</b>
+                  <p class="tw-label">503 mil twittes</p>
+                  <hr />
+                  <b>Lorem ipsum</b>
+                  <p class="tw-label">53 mil twittes</p>
+                  <hr />
+                  <b>Lorem ipsum</b>
+                  <p class="tw-label">3.410 mil twittes</p>
+                  <hr />
+                  <a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-					<br />
-					<div class="row">
-						<div class="col-12">
-							<div class="card tw-card">
-								<div class="card-body">
-									<h5 class="card-title tw-card-title">A quien seguir</h5>
-									<hr />
-									<div class="row">
-										<div class="col-2">
-											<img
-												src="/img/profile.png"
-												style="width: 40px"
-												class="rounded-circle"
-											/>
-										</div>
-										<div class="col-6">
-											<b>Lorem ipsum</b>
-											<p class="tw-label">@loremipsum</p>
-										</div>
-										<div class="col-2">
-											<button class="btn btn-light tw-btn-light">Seguir</button>
-										</div>
-									</div>
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <div class="card tw-card">
+                <div class="card-body">
+                  <h5 class="card-title tw-card-title">A quien seguir</h5>
+                  <hr />
+                  <div class="row">
+                    <div class="col-2">
+                      <img
+                        src="/img/profile.png"
+                        style="width: 40px"
+                        class="rounded-circle"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <b>Lorem ipsum</b>
+                      <p class="tw-label">@loremipsum</p>
+                    </div>
+                    <div class="col-2">
+                      <button class="btn btn-light tw-btn-light">Seguir</button>
+                    </div>
+                  </div>
 
-									<hr />
-									<div class="row">
-										<div class="col-2">
-											<img
-												src="/img/profile.png"
-												style="width: 40px"
-												class="rounded-circle"
-											/>
-										</div>
-										<div class="col-6">
-											<b>Lorem ipsum</b>
-											<p class="tw-label">@loremipsum</p>
-										</div>
-										<div class="col-2">
-											<button class="btn btn-light tw-btn-light">Seguir</button>
-										</div>
-									</div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-2">
+                      <img
+                        src="/img/profile.png"
+                        style="width: 40px"
+                        class="rounded-circle"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <b>Lorem ipsum</b>
+                      <p class="tw-label">@loremipsum</p>
+                    </div>
+                    <div class="col-2">
+                      <button class="btn btn-light tw-btn-light">Seguir</button>
+                    </div>
+                  </div>
 
-									<hr />
-									<div class="row">
-										<div class="col-2">
-											<img
-												src="/img/profile.png"
-												style="width: 40px"
-												class="rounded-circle"
-											/>
-										</div>
-										<div class="col-6">
-											<b>Lorem ipsum</b>
-											<p class="tw-label">@loremipsum</p>
-										</div>
-										<div class="col-2">
-											<button class="btn btn-light tw-btn-light">Seguir</button>
-										</div>
-									</div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-2">
+                      <img
+                        src="/img/profile.png"
+                        style="width: 40px"
+                        class="rounded-circle"
+                      />
+                    </div>
+                    <div class="col-6">
+                      <b>Lorem ipsum</b>
+                      <p class="tw-label">@loremipsum</p>
+                    </div>
+                    <div class="col-2">
+                      <button class="btn btn-light tw-btn-light">Seguir</button>
+                    </div>
+                  </div>
 
-									<a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
-									<br />
-									<br />
-									<a href="#" class="tw-link-light">Política de privacidad</a>
-									<a href="#" class="tw-link-light">Cookies</a>
-									<br />
-									<a href="#" class="tw-link-light">Informaciones</a>
-									<a href="#" class="tw-link-light">Mas</a>
-									<br />
-									<label class="tw-label">© 2019 Kitter</label>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		//arreglando duplicados
-		<script
-			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"
-		></script>
-	</body>
+                  <a class="tw-link tw-link-primary" href="#">Mostrar mas</a>
+                  <br />
+                  <br />
+                  <a href="#" class="tw-link-light">Política de privacidad</a>
+                  <a href="#" class="tw-link-light">Cookies</a>
+                  <br />
+                  <a href="#" class="tw-link-light">Informaciones</a>
+                  <a href="#" class="tw-link-light">Mas</a>
+                  <br />
+                  <label class="tw-label">© 2019 Kitter</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    //arreglando duplicados
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

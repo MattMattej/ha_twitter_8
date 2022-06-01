@@ -144,8 +144,10 @@
 p{
   text-align: justify;
 }
-.btnlike:focus {
-    outline: none;
+
+#btnlike {
+    border: none;
+    background: none;
 }
 .kittydark{
   height: 2.5rem;
