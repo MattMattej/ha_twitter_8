@@ -1,29 +1,76 @@
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Explore</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Notifications</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Messages</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Bookmarks</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Lists</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Profile</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Login</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Register</a>
-  </li>
-</ul>
+<div class="col-2 col-lg-3">
+  <br />
+  <ul class="list-group">
+    <li class="list-group-item tw-list-group-item">
+      <a href="http://localhost:3000/" class="tw-link">
+        <span>
+          <img src="/img/kittierdark.png" alt="miau" class="kittydark" />
+        </span>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="http://localhost:3000/" class="tw-link">
+        <span class="fa fa-home"></span>
+        <label class="d-none d-xl-inline">Feed</label>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="#" class="tw-link">
+        <span class="fa fa-hashtag"></span>
+        <label class="d-none d-xl-inline">Explorar</label>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="#" class="tw-link">
+        <span class="fa fa-bell"></span>
+        <label class="d-none d-xl-inline">Notificaciones</label>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="#" class="tw-link">
+        <span class="fa fa-envelope"></span>
+        <label class="d-none d-xl-inline">Mensajes</label>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="#" class="tw-link">
+        <span class="fa fa-bookmark"></span>
+        <label class="d-none d-xl-inline">Favoritos</label>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="#" class="tw-link">
+        <span class="fa fa-list"></span>
+        <label class="d-none d-xl-inline">Listas</label>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="/profile/<%= user._id %> " class="tw-link">
+        <span>
+          <img
+            src="/img/profile.png"
+            style="width: 24px; margin-right: 10px"
+            class="rounded-circle"
+          />
+        </span>
+        <label class="d-none d-xl-inline">Perfil</label>
+      </a>
+    </li>
+    <li class="list-group-item tw-list-group-item">
+      <a href="#" class="tw-link">
+        <span class="fa fa-ellipsis-h"></span>
+        <label class="d-none d-xl-inline">Mas</label>
+      </a>
+    </li>
+  </ul>
+  <br />
+  <a
+    href="/crear"
+    class="btn btn-light btn-block btn-xl tw-btn-primary d-none d-xl-block "
+  >
+    Tweet
+  </a>
+  <button class="btn btn-light btn-block btn-xl tw-btn-primary d-xl-none">
+    <span class="fa fa-pencil"></span>
+  </button>
+</div>
