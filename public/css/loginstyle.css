@@ -2,11 +2,11 @@ body{
     background-color: black;
 }
 #icono{
-    width: 6rem;
+    width: 8rem;
     margin-top: 2rem;
 }
 #titulo1{
- margin-top: 5rem;
+ margin-top: 3rem;
  font-size: 70px;
 
 }
@@ -36,8 +36,8 @@ body{
     margin-top: 2rem;
 	background-size: cover;
 	background-repeat: no-repeat;
-
 }
+
 #fondoLogin{
   background-color: black;
 }
