@@ -144,3 +144,6 @@
 p{
   text-align: justify;
 }
+.btnlike:focus {
+    outline: none;
+}
