@@ -152,4 +152,14 @@ module.exports = {
 		);
 		res.render("profile", { user: req.user, profile });
 	},
+	followUser: async (req, res) => {
+		await User.findByIdAndUpdate(req.params.id, {
+			$push: { followedBy: [req.user._id] },
+		});
+		console.log("estas en los seguidores de este usuario");
+		await User.findByIdAndUpdate(req.user._id, {
+			$push: { follows: [req.params.id] },
+		});
+		console.log("Estas siguiendo a este usuario");
+	},
 };
