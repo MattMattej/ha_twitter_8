@@ -2,19 +2,21 @@ body{
     background-color: black;
 }
 #icono{
-    width: 8rem;
-    margin-top: 2rem;
+    margin-left: 6rem;
+    width: 15rem;
+    margin-top: 1rem;
 }
 #titulo1{
- margin-top: 3rem;
+ margin-top: rem;
  font-size: 70px;
-
+ color: white;
 }
 
 #titulo2{
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     margin-left: 1rem;
+    color: rgba(255, 255, 255, 0.716);
 }
 #formLogin{
     margin-left: 1.5rem;
