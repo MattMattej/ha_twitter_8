@@ -117,6 +117,7 @@
 							</div>
 							<div class="col-10 col-md-11">
 								<input
+									name="content"
 									class="form-control tw-input-light"
 									placeholder="Que estas pensando?"
 								/>
@@ -129,7 +130,9 @@
 								<span class="fa fa-smile-o"></span>
 							</div>
 							<div class="col-2">
-								<button class="btn tw-btn-primary" disabled>Tweet</button>
+								<form action="/crear" method="post">
+									<button class="btn tw-btn-primary">Tweet</button>
+								</form>
 							</div>
 							<br />
 							<br />

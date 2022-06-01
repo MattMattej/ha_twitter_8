@@ -19,12 +19,12 @@ module.exports = {
 		if (req.user) {
 			const unTweet = await new Tweet({
 				content: req.body.content,
-				author: mongoose.Types.ObjectId(req.user._id),
+				author: req.user._id,
 				email: req.user.email,
 				likes: 0,
 			});
 			await unTweet.save();
-			res.json(unTweet);
+			res.redirect("/");
 		} else {
 			res.redirect("/login");
 		}
